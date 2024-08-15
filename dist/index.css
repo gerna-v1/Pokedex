@@ -1,0 +1,8 @@
+#navbar {
+    --tw-bg-opacity: 1;
+    background-color: rgb(220 38 38 / var(--tw-bg-opacity)) /* #dc2626 */;
+}
+
+footer {
+    background-color: hwb(0 25% 84%) /* #6b7280 */;;
+}
