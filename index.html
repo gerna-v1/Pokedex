@@ -7,118 +7,123 @@
   <link href="./dist/output.css" rel="stylesheet">
   <script src="./lib/axios.min.js"></script>
   <script src="./dist/index.js"></script>
+  <title>Pokedex</title>
 </head>
 
 <body class="flex flex-col">
 
-    <nav class="w-full text-4xl" id="navbar">
-        <p>Pokedex prototype</p>
+    <nav class="w-full" id="navbar">
+        <button onclick="returnToHomepage(1)">
+            <img class="w-fit h-24" src="./bucket/imgs/logos/pokedex.png" alt="PokedexLogo">
+        </button>
     </nav>
 
-    <main class="w-3/5 min-h-fit h-full bg-white flex self-center" id="container">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6 lg:gap-8 mt-4 mx-auto justify-items-center ">
+    <main class="w-full lg:w-3/4 min-h-fit h-full bg-white flex flex-col self-center" id="container">
 
-        <div class="flex flex-col items-center w-full drop-shadow-2xl region-div">
-
-          <button onclick="enterRegion('kanto')">
-            <img class="region" src="./bucket/imgs/regions/kanto.png" alt="Kanto">
-          </button>
-
-          <h3 class="region-name">Kanto</h3>
-          <p class="region-gen">Generation: 1</p>
-        </div>
-        
-        <div class="flex flex-col items-center w-full drop-shadow-2xl region-div">
-
-          <button onclick="enterRegion('johto')">
-            <img class="region" src="./bucket/imgs/regions/johto.png" alt="Johto">
-          </button>
-
-          <h3 class="region-name">Johto</h3>
-          <p class="region-gen">Generation: 2</p>
+        <div class="h-[inherit] w-full my-2">
+            <h1 class="text-4xl text-center">Choose your region!!</h1>
         </div>
 
-        <div class="flex flex-col items-center w-full drop-shadow-2xl region-div">
+        <div class="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8 my-2 mx-auto" id="regions-container">
 
-          <button onclick="enterRegion('hoenn')">
-            <img class="region" src="./bucket/imgs/regions/hoenn.png" alt="Hoenn">
-          </button>
+            <div class="flex flex-col items-center w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 drop-shadow-2xl region-div">
+                <button onclick="enterRegion('')">
+                    <img class="region" src="./bucket/imgs/regions/world.png" alt="World">
+                </button>
+                <h3 class="region-name">Todas las regiones</h3>
+                <p class="region-gen">Generación: 1-9</p>
+            </div>
 
-          <h3 class="region-name">Hoenn</h3>
-          <p class="region-gen">Generation: 3</p>
+
+            <div class="flex flex-col items-center w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 drop-shadow-2xl region-div">
+                <button onclick="enterRegion('kanto')">
+                    <img class="region" src="./bucket/imgs/regions/kanto.png" alt="Kanto">
+                </button>
+                <h3 class="region-name">Kanto</h3>
+                <p class="region-gen">Generación: 1</p>
+            </div>
+
+            <div class="flex flex-col items-center w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 drop-shadow-2xl region-div">
+                <button onclick="enterRegion('johto')">
+                    <img class="region" src="./bucket/imgs/regions/johto.png" alt="Johto">
+                </button>
+                <h3 class="region-name">Johto</h3>
+                <p class="region-gen">Generación: 2</p>
+            </div>
+
+            <div class="flex flex-col items-center w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 drop-shadow-2xl region-div">
+                <button onclick="enterRegion('hoenn')">
+                    <img class="region" src="./bucket/imgs/regions/hoenn.png" alt="Hoenn">
+                </button>
+                <h3 class="region-name">Hoenn</h3>
+                <p class="region-gen">Generación: 3</p>
+            </div>
+
+            <div class="flex flex-col items-center w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 drop-shadow-2xl region-div">
+                <button onclick="enterRegion('sinnoh')">
+                    <img class="region" src="./bucket/imgs/regions/sinnoh.png" alt="Sinnoh">
+                </button>
+                <h3 class="region-name">Sinnoh</h3>
+                <p class="region-gen">Generación: 4</p>
+            </div>
+
+            <div class="flex flex-col items-center w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 drop-shadow-2xl region-div">
+                <button onclick="enterRegion('unova')">
+                    <img class="region" src="./bucket/imgs/regions/unova.png" alt="Unova">
+                </button>
+                <h3 class="region-name">Unova</h3>
+                <p class="region-gen">Generación: 5</p>
+            </div>
+
+            <div class="flex flex-col items-center w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 drop-shadow-2xl region-div">
+                <button onclick="enterRegion('kalos')">
+                    <img class="region" src="./bucket/imgs/regions/kalos.png" alt="Kalos">
+                </button>
+                <h3 class="region-name">Kalos</h3>
+                <p class="region-gen">Generación: 6</p>
+            </div>
+
+            <div class="flex flex-col items-center w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 drop-shadow-2xl region-div">
+                <button onclick="enterRegion('alola')">
+                    <img class="region" src="./bucket/imgs/regions/alola.png" alt="Alola">
+                </button>
+                <h3 class="region-name">Alola</h3>
+                <p class="region-gen">Generación: 7</p>
+            </div>
+
+            <div class="flex flex-col items-center w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 drop-shadow-2xl region-div">
+                <button onclick="enterRegion('galar')">
+                    <img class="region" src="./bucket/imgs/regions/galar.png" alt="Galar">
+                </button>
+                <h3 class="region-name">Galar</h3>
+                <p class="region-gen">Generación: 8</p>
+            </div>
+
+            <div class="flex flex-col items-center w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 drop-shadow-2xl region-div">
+                <button onclick="enterRegion('hisui')">
+                    <img class="region" src="./bucket/imgs/regions/hisui.png" alt="Hisui">
+                </button>
+                <h3 class="region-name">Hisui</h3>
+                <p class="region-gen">Generación: 8</p>
+            </div>
+
+            <div class="flex flex-col items-center w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 drop-shadow-2xl region-div">
+                <button onclick="enterRegion('paldea')">
+                    <img class="region" src="./bucket/imgs/regions/paldea.png" alt="Paldea">
+                </button>
+                <h3 class="region-name">Paldea</h3>
+                <p class="region-gen">Generación: 9</p>
+            </div>
+
+            <div class="flex flex-col items-center w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 drop-shadow-2xl region-div">
+                <button onclick="enterRegion('extra')">
+                    <img class="region object-contain" src="./bucket/imgs/regions/pokedex.png" alt="Extra">
+                </button>
+                <h3 class="region-name">Extra</h3>
+                <p class="region-gen">Generación: 1-9</p>
+            </div>
+
         </div>
-
-        <div class="flex flex-col items-center w-full drop-shadow-2xl region-div">
-
-          <button onclick="enterRegion('sinnoh')">
-            <img class="region" src="./bucket/imgs/regions/sinnoh.png" alt="Sinnoh">
-          </button>
-
-          <h3 class="region-name">Sinnoh</h3>
-          <p class="region-gen">Generation: 4</p>
-        </div>
-        
-        <div class="flex flex-col items-center w-full drop-shadow-2xl region-div">
-
-          <button onclick="enterRegion('unova')">
-            <img class="region" src="./bucket/imgs/regions/unova.png" alt="Unova">
-          </button>
-
-          <h3 class="region-name">Unova</h3>
-          <p class="region-gen">Generation: 5</p>
-        </div>
-
-        <div class="flex flex-col items-center w-full drop-shadow-2xl region-div">
-
-          <button onclick="enterRegion('kalos')">
-            <img class="region" src="./bucket/imgs/regions/kalos.png" alt="Kalos">
-          </button>
-
-          <h3 class="region-name">Kalos</h3>
-          <p class="region-gen">Generation: 6</p>
-        </div>
-
-        <div class="flex flex-col items-center w-full drop-shadow-2xl region-div">
-
-          <button onclick="enterRegion('alola')">
-            <img class="region" src="./bucket/imgs/regions/alola.png" alt="Alola">
-          </button>
-
-          <h3 class="region-name">Alola</h3>
-          <p class="region-gen">Generation: 7</p>
-        </div>
-
-        <div class="flex flex-col items-center w-full drop-shadow-2xl region-div">
-
-          <button onclick="enterRegion('galar')">
-            <img class="region" src="./bucket/imgs/regions/galar.png" alt="Galar">
-          </button>
-
-          <h3 class="region-name">Galar</h3>
-          <p class="region-gen">Generation: 8</p>
-        </div>
-
-        <div class="flex flex-col items-center w-full drop-shadow-2xl region-div">
-
-          <button onclick="enterRegion('hisui')">
-            <img class="region" src="./bucket/imgs/regions/hisui.png" alt="Hisui">
-          </button>
-
-          <h3 class="region-name">Hisui</h3>
-          <p class="region-gen">Generation: 8</p>
-        </div>
-
-        <div class="flex flex-col items-center w-full drop-shadow-2xl region-div">
-
-          <button onclick="enterRegion('paldea')">
-            <img class="region" src="./bucket/imgs/regions/paldea.png" alt="Paldea">
-          </button>
-
-          <h3 class="region-name">Paldea</h3>
-          <p class="region-gen">Generation: 9</p>
-        </div>
-
-      </div>
     </main>
 
     <footer class="w-full text-4xl" id="footer">

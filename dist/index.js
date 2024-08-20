@@ -1,11 +1,17 @@
 const enterRegion = (region) => {
-    console.log("Entering " + region + " region");
-    let main = document.querySelector('#container');
+    let currentRegion = regionalPokedex(region);
+    let url=`./dist/pokedex.html?offset=${currentRegion.start}&limit=${currentRegion.end}`;
 
-    main.innerHTML = '';
-
-    main.innerHTML = `<p> ${JSON.stringify(regionalPokedex(region))} lol  </p>`;
+    window.location.href = url;
 };
+
+const returnToHomepage = (dotAmount) => {
+    let dots = '';
+    for (let i = 0; i < dotAmount.length; i++) {
+        dots += '.'
+    }
+    window.location.href = `${dots}/index.html`;
+}
 
 const regionalPokedex = (region) => {
     
@@ -13,15 +19,17 @@ const regionalPokedex = (region) => {
 
     switch(region) {
 
-        case 'kanto': limits.start = 1; limits.end = 151; break;
-        case 'johto': limits.start = 152; limits.end = 251; break;
-        case 'hoenn': limits.start = 252; limits.end = 386; break;
-        case 'sinnoh': limits.start = 387; limits.end = 493; break;
-        case 'unova': limits.start = 494; limits.end = 649; break;
-        case 'kalos': limits.start = 650; limits.end = 721; break;
-        case 'alola': limits.start = 722; limits.end = 809; break;
-        case 'galar': limits.start = 810; limits.end = 898; break;
-        default: limits.start = 1; limits.end = 1027; break;
+        case 'kanto': limits.start = 0; limits.end = 152; break;
+        case 'johto': limits.start = 151; limits.end = 252; break;
+        case 'hoenn': limits.start = 251; limits.end = 387; break;
+        case 'sinnoh': limits.start = 386; limits.end = 494; break;
+        case 'unova': limits.start = 494; limits.end = 650; break;
+        case 'kalos': limits.start = 649; limits.end = 722; break;
+        case 'alola': limits.start = 721; limits.end = 809; break;
+        case 'galar': limits.start = 809; limits.end = 897; break;
+        case 'paldea': limits.start = 905; limits.end = 1026; break;
+        case 'extra': limits.start = 1026; limits.end = 1303; break;
+        default: limits.start = 0; limits.end = 1026; break;
     }
 
     return limits;

@@ -27,15 +27,34 @@ body {
     transform: scale(1.03); 
 }
 
+.sprite {
+    image-rendering: optimizeQuality;
+}
+
+h2::first-letter {
+    text-transform: capitalize;
+}
+
 .region {
     border-radius: 50%;
-    width: 200px; 
-    height: 200px;
+    max-width: 200px; 
+    max-height: 200px;
+    min-width: 200px; 
+    min-height: 200px;
     object-fit: cover; 
     border: 2px solid hsl(0, 0%, 80%);
     transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out; 
 }
 
+@media screen and (min-width: 1921px) {
+    .region {
+        max-height: 300px;
+        min-width: 300px; 
+        min-height: 300px;
+        max-width: 300px; 
+    }
+    
+}
 .region:hover {
     transform: scale(1.03); 
     border-color: hwb(115 18% 0%); 

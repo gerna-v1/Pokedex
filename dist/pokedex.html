@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./index.css" rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">
+    <script src="../lib/axios.min.js"></script>
+    <script src="./index.js"></script>
+    <title>Pokedex</title>
+</head>
+<body class="flex flex-col">
+
+    <nav class="w-full mb-2" id="navbar">
+        <button onclick="returnToHomepage(2)">
+            <img class="w-fit h-24" src="../bucket/imgs/logos/pokedex.png" alt="PokedexLogo">
+        </button>
+    </nav>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center mx-0 md:mx-4" id="pokemon-list">
+        
+    </div>
+
+    <footer class="w-full mt-2 text-4xl" id="footer">
+
+    </footer>
+</body>
+<script src="./pokedex.js"></script>
+</html>
