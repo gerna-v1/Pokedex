@@ -1,0 +1,24 @@
+.inherit {
+    width: inherit;
+    height: inherit;
+}
+
+img {
+    background-color: tomato;
+}
+
+.sprite {
+    image-rendering: pixelated;
+    object-fit: contain;
+    padding: 8px;
+    transition: transform 3s ease-in-out;
+}
+
+.sprite.rotate {
+    transform: rotate(360deg);
+}
+
+h2::first-letter {
+    text-transform: capitalize;
+}
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./index.css" rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">
+    <script src="../lib/axios.min.js"></script>
+    <script src="./index.js"></script>
+    <title>Pokemon</title>
+  </head>
+  
+  <body class="flex flex-col">
+  
+      <nav class="w-full" id="navbar">
+          <button onclick="returnToHomepage(1)">
+              <img class="w-fit h-24" src="../bucket/imgs/logos/pokedex.png" alt="PokedexLogo">
+          </button>
+      </nav>
+  
+      <main class="w-full lg:w-3/4 min-h-fit h-full bg-white flex flex-row self-center justify-center" id="container">    
+            <div class="min-h-96 h-3/4 w-3/4 flex justify-center" id="pokemon-card"></div>
+      </main>
+  
+      <footer class="w-full text-4xl" id="footer">
+  
+      </footer>
+  
+  </body>
+  <link href="./pokemon.css" rel="stylesheet">
+  <script src="./pokemon.js"></script>
+  </html>
