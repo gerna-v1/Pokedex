@@ -19,6 +19,10 @@ body {
     display: flex;
 }
 
+.content-wrapper {
+    display: block;
+}
+
 .region-div {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }

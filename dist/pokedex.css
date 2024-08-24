@@ -1,0 +1,216 @@
+/* It's called pokedex.css but it's mostly loadingscreen.css lolololol */
+
+.loading-screen * {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+.loading-screen {
+    --current-calculation: calc(90vh - 95px);
+    --min-max: max(var(--current-calculation), 600px);
+
+    width: 80%;
+    min-height: var(--min-max);
+    display: flex;
+    justify-content: center;
+    background-color: hwb(0 17% 83%)/*  */;
+    position: relative;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.back-to-top-button{
+    display: none;
+}
+
+.facts-container * {
+    margin: 3%;
+}
+
+.facts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem;
+    width: 40%;
+    min-width: 650px;
+    /* background-color: hwb(0 0% 100%) */;
+}
+
+.facts-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem;
+    background-color: hsl(0, 0%, 25%);
+
+    border: solid ;
+    border-width: 4px;
+    border-radius: 0.5rem;
+    border-color:  rgba(0, 0, 0, 0.062);
+    filter: drop-shadow( 5px 10px 5px rgb(0 0 0 / 80%) );
+}
+
+
+.progress-wrapper {
+    width: 80%;
+    z-index: 2;
+    transform: translateY(0);
+    transition: 0.35s cubic-bezier(1,.01,1,.01);
+}
+
+.progress-wrapper .progress-area {
+    width: 100%;
+    height: 50px;
+    background: white;    
+    filter: drop-shadow( 10px 15px 5px rgb(0 0 0 / 70%) );
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.progress-wrapper .progress-area .progress-bar {
+    position: relative;
+    width: 2%;
+    background: rgba(245, 25, 25, 0.897);
+    height: inherit;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    overflow: visible; /* Change this to visible */
+    cursor: pointer;
+    transition: width 0.2s ease; 
+    transition: border-bottom-right-radius 0.2s cubic-bezier(1,.01,1,.01) border-top-right-radius 0.2s cubic-bezier(1,.01,1,.01);
+    z-index: 1;
+}
+
+.progress-wrapper .progress-area .progress-bar::before {
+    content: "";
+    position: absolute;
+    top: -42px;
+    left: calc(100% - 140px);
+    width: 240px;
+    height: 100px;
+    overflow: visible;
+
+    background-image: url(../bucket/imgs/icons/furretfinal.gif);
+    image-rendering: pixelated;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+    transform: scaleX(-1);
+    z-index: 2; /* Ensure it appears above other elements */
+}
+
+.progress-wrapper .progress-area .progress-bar.full-width {
+
+    transition: border-bottom-right-radius 0.2s cubic-bezier(1,.01,1,.01) border-top-right-radius 0.2s cubic-bezier(1,.01,1,.01); 
+}
+
+@media (max-width: 700px) {
+
+    #navbar {
+        margin-bottom: 0px;
+    }
+    
+    #footer {
+        margin-top: 0px;
+    }
+
+    .back-to-top-button{
+        display: block;
+    }
+
+    .facts-container * {
+        margin: 5%;
+    }
+
+    .facts-container {
+        width: 100%;
+        min-width: unset;
+        font-size: 1rem;
+    }
+
+    .loading-screen {
+        --current-calculation: calc(100vh - 80px);
+        --min-max: max(var(--current-calculation), 450px);
+
+        justify-content: center;
+
+        width: 100%;
+        min-height: var(--min-max);
+    }
+
+    .facts-info {
+        padding: 1.25rem;
+    }
+
+    #region-title {
+        font-size: 2rem;
+    }
+
+    .facts-info .title {
+        font-size: 1.5rem;
+    }
+
+    .progress-number {
+        font-size: 1rem;
+    }
+
+    .progress-wrapper {
+        width: 75%;
+    }
+
+    .progress-number .progress-area {
+        min-height: 25px;
+        height: 25px;
+        max-height: 25px;
+    }
+
+    .progress-wrapper .progress-area .progress-bar {
+        height: 50px;
+    }
+
+    .progress-wrapper .progress-area .progress-bar::before {
+        top: -42px;
+        left: calc(100% - 140px);
+        width: 240px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .facts-container {
+        width: 100%;
+        min-width: unset;
+        font-size: 0.9rem;
+    }    
+
+    .loading-screen {
+        --current-calculation: calc(100vh - 80px);
+        --min-max: max(var(--current-calculation), 500px);
+
+        justify-content: unset;
+
+        width: 100%;
+        min-height: var(--min-max);
+    }
+
+    .progress-wrapper .progress-area .progress-bar {
+        margin-bottom: 0px;
+    }
+
+    .margin-flexible {
+        margin: 1.5rem;
+    }
+
+    .progress-number {
+        height: 50px;
+    }
+
+}
+
