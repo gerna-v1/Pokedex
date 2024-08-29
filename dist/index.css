@@ -6,11 +6,15 @@
 
 body {
     background-color: hwb(0 76% 24%);
+    overflow-x:hidden;
 }
 
 #navbar {
     --tw-bg-opacity: 1;
     background-color: rgb(220 38 38 / var(--tw-bg-opacity)) /* #dc2626 */;
+    padding-left: 1rem; 
+    padding-right: 1rem;
+
     text-align: center;
     min-height: var(--headersize);  /* 160px */;
 }
@@ -21,14 +25,188 @@ body {
 
 .content-wrapper {
     display: block;
+    overflow:auto;
+}
+
+#pokedex-logo {
+    pointer-events: none;
+}
+
+.search {
+    --searchcolor_dark: hsl(0, 0%, 20%);
+    --searchcolor: hsl(220, 14%, 90%);
+
+    height: 50px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+    border-radius: 25px;
+    background-color: var(--searchcolor);
+}
+
+#searchbar {
+    flex: 1;
+    width: 100%;
+    padding: none;
+    border: none;
+    border-radius: 25px;
+    background-color: transparent;
+    outline: none;
+    color: var(--searchcolor - 1);
+}
+
+#searchbar::placeholder {
+    color: var(--searchcolor - 1);
+}
+
+.icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.icon #volume-range{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 0rem;
+    height: 0.3125rem;
+    background: white;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    transition: 0.4s;
+    border-radius: 0.125rem;
+}
+
+.icon #volume-range::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    opacity: 0;
+    width: 0.875rem;
+    height: 0.875rem;
+    background: white;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: white;
+    color: white;
+    transition: 0.35s;
+}
+
+.icon #volume-range::-moz-range-thumb {
+    opacity: 0;
+    width: 0.875rem;
+    height: 0.875rem;
+    background: white;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: white;
+    color: white;
+    transition: 0.35s;
+}
+
+.icon:hover #volume-range {
+    display: inline-block;
+    width: 5rem;
+}
+
+.icon:hover #volume-range::-webkit-slider-thumb { /* Declarados apartes porque chromium is werid */
+    opacity: 1;
+    pointer-events: auto;
+    transition: 0.5s;
+}
+
+.icon:hover #volume-range::-moz-range-thumb {
+    opacity: 1;
+    pointer-events: auto;
+    transition: 0.5s;
+}
+
+.button-container {
+    padding: unset;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: hsla(0, 0%, 100%, 0.068);
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: hsl(0, 0%, 63%);
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: -5px; /* Align to the left */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease-in-out; /* Fade-in transition */
+    border-radius: 5px; /* Add border radius */
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: white;
+    font-size: large;
+    text-align: justify;
+    padding: 10px; /* Increase padding */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: hsl(0, 0%, 95%);
+}
+
+/* Show the dropdown menu when the dropdown is active */
+.dropdown.active .dropdown-content {
+    display: block;
+    opacity: 1; /* Fade-in effect */
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown.active .dropbtn {
+    background-color: hsl(0, 0%, 87%);
+}
+
+.flag {
+    display: block;
+    transition: 1s ease-in-out;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3.5rem;
+    height: 2.5em;
 }
 
 .region-div {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 .region-div:hover {
     transform: scale(1.03); 
+    filter: drop-shadow(10px 17px 49px rgba(0,0,0,0.60));
 }
 
 .sprite {
@@ -50,9 +228,6 @@ h2::first-letter {
     transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out; 
 }
 
-#pokemon-list {
-    background-color: gray;
-}
 
 @media screen and (min-width: 1921px) {
     .region {
@@ -74,4 +249,128 @@ h2::first-letter {
     background-color: hwb(0 25% 84%) /* #6b7280 */;
     color: white;
     text-align: center; 
+}
+
+.type {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    margin: 2px;
+    border-radius: 1rem;
+    border: 2px solid #000;
+    min-width: 4rem;
+    text-align: center;
+    font-weight: 550;
+    color: #fff;
+}
+
+.type::first-letter {
+    text-transform: uppercase;
+}
+
+.type.grass {
+    background-color: rgb(120, 200, 80);
+    color: white;
+    border-color: rgb(95, 158, 65);
+}
+
+.type.fire {
+    background-color: rgb(240, 128, 48);
+    color: white;
+    border-color: rgb(200, 100, 40);
+}
+
+.type.water {
+    background-color: rgb(104, 144, 240);
+    color: white;
+    border-color: rgb(79, 129, 199);
+}
+
+.type.electric {
+    background-color: rgb(248, 208, 48);
+    color: black;
+    border-color: rgb(210, 162, 30);
+}
+
+.type.bug {
+    background-color: rgb(168, 184, 32);
+    color: white;
+    border-color: rgb(124, 140, 26);
+}
+
+.type.normal {
+    background-color: rgb(168, 168, 120);
+    color: black;
+    border-color: rgb(124, 124, 104);
+}
+
+.type.poison {
+    background-color: rgb(160, 64, 160);
+    color: white;
+    border-color: rgb(124, 40, 124);
+}
+
+.type.ground {
+    background-color: rgb(224, 192, 104);
+    color: black;
+    border-color: rgb(179, 156, 79);
+}
+
+.type.flying {
+    background-color: rgb(168, 144, 240);
+    color: white;
+    border-color: rgb(124, 108, 191);
+}
+
+.type.psychic {
+    background-color: rgb(248, 88, 136);
+    color: white;
+    border-color: rgb(200, 76, 120);
+}
+
+.type.rock {
+    background-color: rgb(184, 160, 56);
+    color: white;
+    border-color: rgb(140, 122, 44);
+}
+
+.type.ghost {
+    background-color: rgb(112, 88, 152);
+    color: white;
+    border-color: rgb(89, 76, 120);
+}
+
+.type.dark {
+    background-color: rgb(112, 88, 72);
+    color: white;
+    border-color: rgb(89, 76, 76);
+}
+
+.type.dragon {
+    background-color: rgb(112, 56, 248);
+    color: white;
+    border-color: rgb(92, 46, 204);
+}
+
+.type.steel {
+    background-color: rgb(184, 184, 208);
+    color: black;
+    border-color: rgb(140, 140, 156);
+}
+
+.type.fairy {
+    background-color: rgb(238, 153, 172);
+    color: black;
+    border-color: rgb(201, 124, 140);
+}
+
+.type.ice {
+    background-color: rgb(152, 216, 216);
+    color: black;
+    border-color: rgb(116, 184, 184);
+}
+
+.type.fighting {
+    background-color: rgb(192, 48, 40);
+    color: white;
+    border-color: rgb(156, 40, 32);
 }

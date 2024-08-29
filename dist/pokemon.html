@@ -5,28 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./index.css" rel="stylesheet">
     <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
     <script src="../lib/axios.min.js"></script>
+    <script src="../lib/utils.js"></script>
     <script src="./index.js"></script>
     <title>Pokemon</title>
   </head>
   
-  <body class="flex flex-col">
-  
-      <nav class="w-full" id="navbar">
-          <button onclick="returnToHomepage(1)">
-              <img class="w-fit h-24" src="../bucket/imgs/logos/pokedex.png" alt="PokedexLogo">
-          </button>
-      </nav>
-  
-      <main class="w-full lg:w-3/4 min-h-fit h-full bg-white flex flex-row self-center justify-center" id="container">    
+    <body class="flex flex-col">
+
+        <nav class="w-full" id="navbar">
+            <button onclick="returnToHomepage(1)">
+                <img class="w-fit h-24" src="../bucket/imgs/logos/pokedex.png" alt="PokedexLogo">
+            </button>
+        </nav>
+
+        <main class="w-full lg:w-3/4 min-h-fit h-full bg-white flex flex-row self-center justify-center" id="container">    
             <div class="min-h-96 h-3/4 w-3/4 flex justify-center" id="pokemon-card"></div>
-      </main>
-  
-      <footer class="w-full text-4xl" id="footer">
-  
-      </footer>
-  
-  </body>
-  <link href="./pokemon.css" rel="stylesheet">
-  <script src="./pokemon.js"></script>
-  </html>
+        </main>
+
+        <footer class="w-full text-4xl" id="footer">
+
+        </footer>
+
+    </body>
+    
+    <link href="./pokemon.css" rel="stylesheet">
+    <script src="./pokemon.js"></script>
+    </html>

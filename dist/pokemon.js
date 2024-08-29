@@ -1,3 +1,9 @@
+document.addEventListener('DOMContentLoaded', async () => {
+    const pokemon = await getPokemon();
+    console.debug(pokemon);
+    loadPokemon(pokemon);
+});
+
 const getPokemon = async () => {
     try {
         const params = new URLSearchParams(window.location.search);
@@ -14,11 +20,17 @@ const getPokemon = async () => {
     }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    const pokemon = await getPokemon();
-    console.debug(pokemon);
-    loadPokemon(pokemon);
-});
+const playCry = async (url) => {
+    try {
+        const audio = new Audio(url);
+        await audio.play();
+        console.log('Playing sound');
+        let sprite2 = document.querySelector('.sprite');
+        sprite2.classList.toggle('rotate');
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 const loadPokemon = (pokemon) => {
     const pokemonCard = document.getElementById('pokemon-card');
@@ -55,44 +67,4 @@ const loadPokemon = (pokemon) => {
         </div>
     </div>
         `;
-}
-
-const getMissingno = () => {
-    pokemon = {
-        "id": 0,
-        "species": {
-            "name": "missingno"
-        },
-        "types": [
-            {
-                "type": {
-                    "name": "normal"
-                }
-            }
-        ],
-        "abilities": [
-            {
-                "ability": {
-                    "name": "unknown"
-                }
-            }
-        ],
-        "sprites": {
-            "front_default": "../bucket/imgs/icons/missingno.png",
-            "versions": {
-                "generation-v": {
-                    "black-white": {
-                        "animated": {
-                            "front_default": "../bucket/imgs/icons/missingno.png"
-                        }
-                    }
-                }
-            }
-        },
-        "cries": {
-            "latest": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sounds/cry/201.wav"
-        }
-    }
-
-    return pokemon
 }
