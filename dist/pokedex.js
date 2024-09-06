@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', async () => {
+    loadPokedex();
+    startPlayingMusic(getCurrentMusic(getRecentRegion()));
+    if (document.querySelector('audio.exists')) {
+        currentMusic = document.querySelector('audio.exists');
+    }
+    setupVolumeControls(currentMusic);
+});
+
+let lastVolume = 10;
+
 const getPokemons = async () => {
     try {
         const params = new URLSearchParams(window.location.search);
@@ -5,8 +16,8 @@ const getPokemons = async () => {
         let limit = params.get('limit');
         let i = 0;
 
-        deployLoadingScreen(getRecentRegion());
-        const factBox = document.querySelector('.region-fact');
+        await deployLoadingScreen(getRecentRegion());
+        //const factBox = document.querySelector('.region-fact');
 
         if(offset == 999 && limit == 999) { // If it's not the Hisui region, defined as 0 and 0
             try {
@@ -59,29 +70,28 @@ const getPokemons = async () => {
     }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    loadPokedex();
-});
 
-const deployLoadingScreen = (region) => {
+
+const deployLoadingScreen = async (region) => {
 
     const mainContent = document.querySelector('.content-wrapper');
 
     let currentLang = localStorage.getItem('language');
+    let randomFact = await getRandomFact(region, currentLang);
 
     const loadingScreen = `<div class="loading-screen mx-auto" id="loading-screen"> 
 
         <section class="facts-container">
-            <h1 class="text-5xl mb-2" id="region-title"> Now accesing: ${region} </h1>   
+            <h1 class="text-6xl mb-2" id="region-title"> Now accesing: ${CFL(region)} </h1>   
             <div class="facts-info">
                 <h2 class="title text-3xl">Did you know?</h2>
-                <p class="region-fact">${getRandomFact(region, currentLang)}</p>
+                <p class="region-fact">${randomFact}</p>
             </div>
         </section>
 
         <div class="progress-wrapper">
             <div class="progress-area">
-                <div class="progress-bar"></div>
+                <div class="progress-bar" onclick="startPlayingMusic('${getCurrentMusic(region)}')"></div>
                 <div class="flex justify-center content-center m-10 margin-flexible"> 
                     <div class="progress-number font-medium text-xl"> 0 / ??? </div>
                 </div
@@ -91,6 +101,48 @@ const deployLoadingScreen = (region) => {
     </div>`;
 
     mainContent.innerHTML = loadingScreen;
+}
+
+const deployRegionInfo = async (regionName, regionData, regionExtra) => {
+    const mainContent = document.querySelector('.content-wrapper');
+
+    const regionInfo = document.createElement('div');
+    regionInfo.className = 'region-info-wrapper';
+    regionInfo.innerHTML = `
+        <div class="region-info">
+            <aside class="professor-wrapper">
+                <img class="region-image" src="../bucket/imgs/icons/professor-${regionExtra.professor}.png" alt="${regionExtra.professor}">
+            </aside>
+
+            <div class="region-data">
+                <h1 class="region-title">${regionName}</h1>
+                <div class="region-relative">
+                    <div class="region-description-before"></div>
+                    <p class="region-description custom-scrollbar">${regionData.description}</p>
+                </div>
+                
+                <h1 class="region-title">Games it appears in: </h1>
+            </div>
+
+            <div class="region-extra-wrapper">
+                <div class="region-extra custom-scrollbar">
+
+                </div>
+            </div>
+        </div>
+    `;
+
+    for (const game of regionExtra.games) {
+        const gameElement = document.createElement('div');
+        gameElement.className = 'game';
+        gameElement.innerHTML = `
+            <img class="game-image" src="../bucket/imgs/logos/pokemon-${game}.png" alt="${game}">
+        `;
+
+        regionInfo.querySelector('.region-extra').appendChild(gameElement);
+    }
+
+    mainContent.appendChild(regionInfo);
 }
 
 const updateLoadingScreen = (index, limit) => {
@@ -105,7 +157,8 @@ const updateLoadingScreen = (index, limit) => {
 
 const updateRandomFact = (region) => {
     const factBox = document.querySelector('.region-fact');
-    factBox.innerHTML = getRandomFact(region, 'spanish');
+    let currentLang = localStorage.getItem('language');
+    factBox.innerHTML = getRandomFact(region, currentLang);
 };
 
 const removeLoadingScreen = async () => {
@@ -192,11 +245,24 @@ const createPokemonCard = (pokemon, index) => {
     return pokemonCard;
 };
 
+const loadRegionInfo = async (region, language) => {
+    let regionInfo = await getRegionData(region, language);
+    let description = regionInfo.description;
+    console.log(description);
+    return regionInfo;
+};
+
 const loadPokedex = async () => {
     const pokemons = await getPokemons();
     const mainContent = document.querySelector('.content-wrapper');
+
+    const regionData = await loadRegionInfo(getRecentRegion(), getCurrentLanguage());
+    const regionExtra = await getRegionExtra(getRecentRegion(), getCurrentLanguage());
+
+    await deployRegionInfo(getRecentRegion(), regionData, regionExtra);
+
     const pokemonList = document.createElement('div');
-    pokemonList.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center mx-0 md:mx-4';
+    pokemonList.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center mx-0 md:mx-4 py-2';
     pokemonList.id = 'pokemon-list';
     mainContent.appendChild(pokemonList);
     

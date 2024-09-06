@@ -1,0 +1,160 @@
+{
+    "kanto": {
+        "professor": "oak",
+        "games": [
+            "red",
+            "blue",            
+            "yellow",
+            "gold",
+            "silver",
+            "crystal",
+            "firered",
+            "leafgreen",
+            "heartgold",
+            "soulsilver",
+            "eevee",
+            "pikachu"
+        ]
+    },
+    "johto": {
+        "professor": "elm",
+        "games": [
+            "gold",
+            "silver",
+            "crystal",
+            "heartgold",
+            "soulsilver"
+        ]
+    },
+    "hoenn": {
+        "professor": "birch",
+        "games": [
+            "ruby",
+            "sapphire",
+            "emerald",
+            "omegaruby",
+            "alphasapphire"
+        ]
+    },
+    "sinnoh": {
+        "professor": "rowan",
+        "games": [
+            "diamond",
+            "pearl",
+            "platinum",
+            "brilliantdiamond",
+            "shiningpearl"
+        ]
+    },
+    "unova": {
+        "professor": "juniper",
+        "games": [
+            "black",
+            "white",
+            "black2",
+            "white2"
+        ]
+    },
+    "kalos": {
+        "professor": "sycamore",
+        "games": [
+            "x",
+            "y"
+        ]
+    },
+    "alola": {
+        "professor": "kukui",
+        "games": [
+            "sun",
+            "moon",
+            "ultrasun",
+            "ultramoon"
+        ]
+    },
+    "galar": {
+        "professor": "magnolia",
+        "games": [
+            "sword",
+            "shield"
+        ]
+    },
+    "hisui": {
+        "professor": "laventon",
+        "games": [
+            "legendsarceus"
+        ]
+    },
+    "paldea": {
+        "professor": "sada",
+        "games": [
+            "scarlet",
+            "violet"
+        ]
+    },
+    "extra": {
+        "professor": "willow",
+        "games": [
+            "go",
+            "ruby",
+            "sapphire",
+            "emerald",
+            "omegaruby",
+            "alphasapphire",
+            "firered",
+            "leafgreen",
+            "heartgold",
+            "soulsilver",
+            "black2",
+            "white2",
+            "x",
+            "y",
+            "sun",
+            "moon",
+            "ultrasun",
+            "ultramoon",
+            "sword",
+            "shield",
+            "legendsarceus",
+            "scarlet",
+            "violet"
+        ]
+    },
+    "all": {
+        "professor": "oak",
+        "games": [
+            "red",
+            "blue",
+            "yellow",
+            "gold",
+            "silver",
+            "crystal",
+            "ruby",
+            "sapphire",
+            "emerald",
+            "firered",
+            "leafgreen",
+            "diamond",
+            "pearl",
+            "platinum",
+            "heartgold",
+            "soulsilver",
+            "black",
+            "white",
+            "black2",
+            "white2",
+            "x",
+            "y",
+            "omegaruby",
+            "alphasapphire",
+            "sun",
+            "moon",
+            "ultrasun",
+            "ultramoon",
+            "sword",
+            "shield",
+            "legendsarceus",
+            "scarlet",
+            "violet"
+        ]
+    }
+}

@@ -1,0 +1,240 @@
+{
+    "spanish": {
+        "kanto": {
+            "description": "Primera región que se introdujo al mundo Pokémon, ubicada al este de Johto y al sur de Sinnoh. Kanto es una región variada, con pequeñas ciudades y pueblos, así como ríos, mares, bosques y montañas.\nAl ser la primera en presentarse, todos los pokémon de la Generación 1 pertenecen a la misma, como el famoso Pikachu, Eevee, Mew, Mewtwo, Charizard, entre otros.",
+            "facts": [
+                "El nombre de 'Kanto',proviene de la región Kanto, que se encuentra en Japón real y la cual incluye Tokio y prefecturas circundantes.",
+                "La torre de Pueblo Lavanda se basa en Ushiku Daibutsu, estatua de Buda que se ubica en la prefectura de Ibaraki, Japón.",
+                "Kanto es la región que ha aparecido en más videojuegos y generaciones hasta la fecha.",
+                "Kanto es considerada la región con menos población de todas."
+            ]
+        },
+        "johto": {
+            "description": "Es una región ubicada al oeste de Kanto, y junto a la misma forman un continente. Esta posee variedad de campos y zonas rurales.\nEn su arquitectura, se pueden encontrar varios edificios antiguos, entre ellos las torres de Ciudad Iris y la Torre Bellsprout; mas, edificios modernos como los de Ciudad Trigal pueden encontrarse.",
+            "facts": [
+                "Johto y Kanto son las únicas regiones que se muestran conectadas entre sí.",
+                "Johto al igual que Kanto, se basa en una ubicación real en Japón, siendo esta la región de Kansai.",
+                "Johto fue la primera región en introducir áreas que permiten plantar bayas.",
+                "Todas las ciudades de Johto basan su nombre en plantas y en colores."
+            ]
+        },
+        "hoenn": {
+            "description": "Es un complejo de islas situadas al suroeste de Johto. Esta es la primera región en contar con zonas donde el clima difiere, más no incorpora el ciclo de día y noche (solo en sus remakes).\nDe entre sus ciudades, la más llamativa puede considerarse Ciudad Arborada, ya que los habitantes de la misma viven en las copas de los árboles, y se especializan en el uso de pokémon tipo volador.",
+            "facts": [
+                "Esta región se basa en la isla de Kyushu, ubicada en Japón.",
+                "En Hoenn se encuentran escenarios los cuales no se habían presentado en anteriores entregas; se incluyen entre ellos, un desierto, playas, la jungla y un volcán.",
+                "Hoenn es la primera región en implementar las batallas dobles pokémon.",
+                "Hoenn fue mencionada en el anime antes de que los juegos de la tercera generación salieran."
+            ]
+        },
+        "sinnoh": {
+            "description": "Es una región ubicada al norte de Kanto, Johto y Hoenn. Presenta una cantidad de climas variados donde predominan los fríos, y se incluye por primera vez nieve. Es mayormente terrestre, con solo dos rutas completamente acuáticas.\nSe encuentran accidentes geográficos como el Monte Corona, que divide en dos toda la región y destacan ciudades como Ciudad Pirita, donde se encuentra una mina de carbón muy profunda, o Ciudad Canal, la cuál se divide por un río.",
+            "facts": [
+                "Sinnoh se basa en Hokkaido, que es la segunda isla principal más grande de Japón.",
+                "Los lagos ubicados en esta región forman un triángulo en el mapa, el cual representa a los tres legendarios principales, así como a los guardianes del lago.",
+                "El nombre de 'Sinnoh' significa 'misterioso', lo cual se considera una referencia a todos los mitos e historias que se encuentran en esta región.",
+                "Es la única región que tiene un alto mando del tipo bicho y tierra."
+            ]
+        },
+        "unova": {
+            "description": "Es una región la cual se encuentra alejada de los demás, esta se basa en penínsulas y se divide en regiones de: este, centro y oeste. Posee lujosas playas, grandes planicies, bosques, cordilleras y enormes puentes.\nEsta región es diferente a las anteriores, ya que cuenta con enormes ciudades con modernos edificios, instituciones dedicadas al arte, empresas, hoteles y teatros. Se pueden destacar una ciudad industrial, un desierto, montañas y un parque de atracciones. ",
+            "facts": [
+                "Unova es la primera región que no se basa en Japón, ya que la misma se inspira en New York City, Estados Unidos.",
+                "Desde las ciudades más grandes, hasta los pueblos más pequeños, Unova es la región que cuenta con la mayor cantidad de asentamientos.",
+                "Unova es la única región cuya pokédex no empieza con el inicial de tipo planta, sino con el pokémon legendario Victini.",
+                "Es la región que cuenta con más líderes de gimnasio, sumando un total de 14."
+            ]
+        },
+        "kalos": {
+            "description": "Región cuya forma hace recordar a una estrella y la cual se divide en tres subregiones: Kalos Centro, Kalos Costa y Kalos Montaña. En esta región se pueden apreciar variedad de hermosos cielos y bosques, ciudades y pokémon, así como una vasta red de ríos y vías fluviales que abarcan gran parte de sus paisajes, ciudades y pueblos. \nKalos presenta la mayor población de entre todas las regiones, y es la que más pokémon introdujo. Asimismo, se introducen las 'megaevoluciones', que permite que aquellos pokémon los cuales ya no evolucionan, o no cuentan con evolución, puedan adquirir una forma muchos más poderosa.",
+            "facts": [
+                "Kalos está basada principalmente en las áreas metropolitanas del norte de Francia.",
+                "Kalos tiene la mayor población de entre todas las regiones, siendo esta de 1288, incluyendo las ciudades, pueblos, rutas y áreas.",
+                "Los nombres en inglés y japonés de las ciudades y pueblos en Kalos derivan de varios ingredientes usados en las fragancias.",
+                "Junto con Alola, es la única región donde se pueden capturar pokémon iniciales salvajes, gracias al Safari Amistad."
+            ]
+        },
+        "alola": {
+            "description": "Se trata de un archipiélago compuesto por 4 islas naturales y una artificial, las cuales se encuentran bastante alejadas de otras regiones. Hay gran cantidad de vegetación tropical, playas, volcanes y ciudades en costas. \nSe le considera un paraíso Pokémon, siendo un destino turístico popular el cual atrae a muchos. Los humanos y pokémon mantienen una relación muy especial, lo que a través de los años, los llevó a desarrollar una cultura distinta a otras regiones.",
+            "facts": [
+                "Alola está basado en Hawaii. Su nombre proviende del saludo hawaiano 'Aloha'.",
+                "Es la primera región la cual no posee líderes de gimnasio.",
+                "La Liga Pokémon de Alola es la única de los juegos, la cual el protagonista del anime Ash, ha podido vencer.",
+                "Todas las islas de Alola toman sus nombres de colores en hawaiano."
+            ]
+        },
+        "hisui": {
+            "description": "Es el nombre que la región de Sinnoh cuando los primeros asentamientos humanos tuvieron lugar. Está llena de naturaleza virgen en su mayoría, con diversos ecosistemas. \nA diferencia de Sinnoh, Hisui se dividía más allá de dos mitades, conteniendo 5 subregiones separadas, las cuales a su vez se dividían en sus propios entornos más pequeños",
+            "facts": [
+                "Aparte de la Ladera Corona, los nombres de las cuatro áreas principales de Hisui se relacionas a los colores asociados con los Cuatro Símbolos Chinos.",
+                "Esta región se basa en la isla de Hokkaido durante la colonización japonesa temprana.",
+                "Ambientado en el pasado, esta región pone a los jugadores en los zapatos del Pokeólogo original.",
+                "En esta región, se introducen el Clan Diamante y el Clan Perla, los cuales hacen referencia a los nombres de los juegos de la generación IV."
+            ]
+        },
+        "galar": {
+            "description": "Es una región con gran variedad de entornos, zonas rurales, grandes y modernas ciudades, bosques frondosos y montañas cubiertas de nieve. \nA diferencia de otras regiones, las batallas pokémon en Galar son una forma de entretenimiento con un acercamiento más deportivo, por lo que las batallas se llevan a cabo en grandes estadios rodeados de gente y los participantes visten uniformes",
+            "facts": [
+                "La región de Galar está basada en el Reino Unido.",
+                "Galar no posee una Calle Victoria.",
+                "Galar es la primera región cuyos líderes de gimnasio luego de ser retados, dejan su puesto a sus sucesores.",
+                "Es la primera región en poseer un gimnasio de tipo siniestro."
+            ]
+        },
+        "paldea": {
+            "description": "Se trata de una extensa región repleta de lagos, montañas escarpadas, terrenos baldíos, entre otros. Se divide en 5 zonas, donde 4 de las mismas se nombran como los puntos cardinales (norte, sur, este y oeste), y 1 lleva por nombre Foso de Paldea. \nEn esta región, muchas personas y pokémon conviven en distintos tipos de entornos, desde prósperas comunidades agrícolas hasta ciudades con un mercado ajetreado. En el centro de esta región, se encuentra un enorme cráter al cual se le conoce como el Foso de Paldea, cuyo acceso está restringido.",
+            "facts": [
+                "Mesagoza es el principal asentamiento de esta región, el cual lleva un nombre parecido a Zaragoza, ciudad de España.",
+                "La academia a la que el jugador asiste tiene un parecido a la Catedral basílica de Nuestra Señora del Pilar, famosa iglesia de la ciudad.",
+                "Paldea es la primera región que no tiene rutas ni números de ruta, en su lugar, se les conoce como 'Áreas'.",
+                "Paldea es la primera región en ser mundo abierto."
+            ]
+        },
+        "none": {
+            "description": "TBA",
+            "facts": [
+                "TBA",
+                "TBA",
+                "TBA",
+                "TBA"
+            ]
+        },
+        "extra": {
+            "description": "Algunos pokemones tienen una o más formas especiales o alternativas, debido a eso se recopilan sus datos en esta sección especial para todas aquellas especies que tienen este tipo de variaciones",
+            "facts": [
+                "TBA",
+                "TBA",
+                "TBA",
+                "TBA"
+            ]
+        },
+        "all": {
+            "description": "Hola! ¡Este es el mundo de Pokémon! ¡Me llamo Oak! ¡Pero la gente me llama Profesor Pokémon! ¡Este mundo está habitado por unas criaturas llamadas Pokémon! Para algunos, los Pokémon son mascotas. Pero otros los usan para pelear. En cuanto a mí... Estudio a los Pokémon como profesión. \n¡Tu propia leyenda Pokémon está a punto de comenzar! ¡Te espera un mundo de sueños y aventuras con los Pokémon! Adelante!",
+            "facts": [
+                "TBA",
+                "TBA",
+                "TBA",
+                "TBA"
+            ]
+        }
+    },
+    "english": {
+        "kanto": {
+            "description": "First region to be introduced to the Pokémon world, located east of Johto and south of Sinnoh. Kanto is a diverse region, with small cities and towns, as well as rivers, seas, forests and mountains.\n Being the first to be presented, all the pokémon from Generation 1 belong to it, such as the famous Pikachu, Eevee, Mew, Mewtwo, Charizard, among others.",
+            "facts": [
+                "The name 'Kanto' comes from the real-world Japan, which includes Tokyo and the surrounding prefectures.",
+                "The Pokémon Tower in Lavander Town is based on the real-life Ushiku Daibatsu, a Buddha statue in Ibaraki, Japan.",
+                "Kanto has appeared in more Pokémon video games and generations than any other region.",
+                "Kanto has the smallest population of all the regions."
+            ]
+        },
+        "johto": {
+            "description": "A region located west of Kanto, and together they form a continent. It has a variety of fields and rural areas.\nIn its architecture, several old buildings can be found, including the towers of Ecruteak City and the Sprout Tower; however, modern buildings such as those in Goldenrod City can also be found.",
+            "facts": [
+                "Johto and Kanto are the only regions shown to be connected to another.",
+                "The Johto region is based on a real-world region of Japan, the Kansai region.",
+                "Johto was the first region to introduce areas to plant berries.",
+                "All the cities in Johto are named after plants in addition to colors."
+            ]
+        },
+        "hoenn": {
+            "description": "It's a complex of islands located at the southwest of Johto. This is the first region that counts with areas where the climate differs, but it does not incorporate the day and night cycle (only in the remakes).\nAmong its cities, the most striking can be considered Fortree city, since its inhabitants live in the treetops and specialize in using flying-type pokémon",
+            "facts": [
+                "Hoenn is inspired by real-world Kyushu.",
+                "In Hoenn there are environments introduced that aren't present in previous games; these environments include a desert, beaches, a jungles and a volcano.",
+                "Hoenn is the first region to implement double pokémon battles.",
+                "Hoenn was mentiones in the anime, before the third generation games came out."
+            ]
+        },
+        "sinnoh": {
+            "description": "It's a region located north of Kanto, Johto and Hoenn. It has a number of varied climates where cold weather predominates, and snow is included for the first time. It is mostly land-based, with only two completely aquatic routes. \nThere are geographical features such as Mount Coronet, which divides the entire region in two, and cities such as Oreburgh City, where there is a very deep coal mine, or Canalave City, which is divided by a river.",
+            "facts": [
+                "Sinnoh is based on Hokkaido, which is the second largest main island in Japan.",
+                "The three lakes located in this region form a triangle on the map, which represents the three main legendary, as well as the guardians of the lake.",
+                "The name 'Sinnoh' denotes 'mysterious', which is a reference to the many myths and stories that lie within the region.",
+                "It is the only region whose elite four have the bug and ground type."
+            ]
+        },
+        "unova": {
+            "description": "It's a region that is far from the others, it is based on peninsulas and is divided into regions: east, center and west. It has luxurious beaches, large plains, forests, mountain ranges and huge bridges.\nThis region is different from the previous ones, as it has huge cities with modern buildings, institutions dedicated to art, companies, hotels and theaters. We can highlight an industrial city, a desert, mountains and an amusement park.",
+            "facts": [
+                "Unova in the first region that is not based on Japan, since it is inspired by New York City, United States.",
+                "From the largest cities to the smallest towns, Unova is the region with the largest number of settlements.",
+                "Unova is the only region whose pokédex does not start with the grass-type starter, but with the legendary pokémon Victini.",
+                "It is the region that has the most gym leaders, adding a total of 14."
+            ]
+        },
+        "kalos": {
+            "description": "Region whose shape is reminiscent of a star and which is divided into three subregions: Kalos Central, Kalos Coast and Kalos Mountain. In this region you can see a variety of beautiful skies and forests, cities and Pokémon, as well as a vast network of rivers and waterways that cover much of its landscapes, cities and towns. \nKalos has the largest population of all the regions, and is the one that introduced the most Pokémon. Likewise, 'mega evolutions' are introduced, which allow those Pokémon that no longer evolve, or do not have evolution, to acquire a much more powerful form.",
+            "facts": [
+                "Kalos is based primarily in the metropolitan areas of northern France.",
+                "Kalos has the largest population of all regions, it has 1288 inhabitants, including cities, towns, routes and areas.",
+                "The english and japanese names of the cities and towns in Kalos are derived from various ingredients used in fragrances.",
+                "Along with Alola, it is the only region where you can capture wild starter pokémon, thanks to the Friend Safari."
+            ]
+        },
+        "alola": {
+            "description": "It's an archipelago made up of 4 natural islands and one artificial one, which are quite far from other regions. There is a large amount of tropical vegetation, beaches, volcanoes and coastal cities. \nIt is considered a Pokémon paradise, being a popular tourist destination which attracts many. Humans and Pokémon maintain a very special relationship, which over the years led them to develop a culture different from other regions.",
+            "facts": [
+                "Alola is based on Hawaii. Its name comes from the hawaiian greeting 'Aloha'.",
+                "This is the first main series game region which does not have gym leaders.",
+                "The Alola Pokémon League is the only in the main series that Ash, the protagonist of the anime, has won.",
+                "All of the Alolan Islands are named after colors in hawaiian."
+            ]
+        },
+        "hisui": {
+            "description": "It's the name given to the Sinnoh region when the first human settlements took place. It is full of mostly virgin nature, with diverse ecosystems. \nUnlike Sinnoh, Hisui was further divided into two halves, containing 5 separate subregions, which were in turn divided into their own smaller environments.",
+            "facts": [
+                "Aside from the Coronet Highlands, the names of the four main areas of Hisui correspond to the colors associated with the Chinese Four Symbols.",
+                "The Hisui region is based on the island of Hokkaido during early japanese colonization",
+                "Set in the distant past, this region puts the players in the shoes of the original Pokéologist.",
+                "In this region, the Diamond Clan and the Pearl Clan are introduced, which refer to the names of the generation IV games."
+            ]
+        },
+        "galar": {
+            "description": "It's a region with a great variety of environments, rural areas, large and modern cities, lush forests and snow-covered mountains. \nUnlike other regions, Pokémon battles in Galar are a form of entertainment with a more sporting approach, so the battles take place in large stadiums surrounded by people and the participants wear uniforms.",
+            "facts": [
+                "The Galar region is based on the United Kingdom.",
+                "Galar doesn't have a Victory Road.",
+                "Galar is the first region whose gym leaders, after being challenged, leave their position to their successors.",
+                "It is the first region to have a dark type gym."
+            ]
+        },
+        "paldea": {
+            "description": "It's an extensive region full of lakes, steep mountains, vacant lands, among others. It's divided into 5 zones, where 4 of them are named after the cardinal points (north, south, east and west), and 1 is named Great Crater of Paldea. \nIn this region, many people and Pokémon live together in different types of environments, from thriving farming communities to bustling market towns. In the center of this region, there is a huge crater known as the Great Crater of Paldea, whose access is restricted.",
+            "facts": [
+                "Mesagoza is the main settlement in the region, its name sounds similar to Zaragoza, city in Spain.",
+                "The academy the player attends to, has a slight resemblance to the Catedral basílica de Nuestra Señora del Pilar, a famous church in the city.",
+                "Paldea is the first region to not have routes and route numbers, instead, they're known as 'Areas'.",
+                "Paldea is the first region to be open world."
+            ]
+        },
+        "none": {
+            "description": "TBA",
+            "facts": [
+                "TBA",
+                "TBA",
+                "TBA",
+                "TBA"
+            ]
+        },
+        "extra": {
+            "description": "TBA",
+            "facts": [
+                "TBA",
+                "TBA",
+                "TBA",
+                "TBA"
+            ]
+        },
+        "all": {
+            "description": "Hello, there! Glad to meet you! Welcome to the world of Pokémon! My name is Oak. People affectionately refer to me as the Pokémon Professor. This world… …is inhabited far and wide by creatures called Pokémon! For some people, Pokémon are pets. Other use them for battling. As for myself… I study Pokémon as a profession. \nYour own very Pokémon legend is about to unfold! A world of dreams and adventures with Pokémon awaits! Let's go!",
+            "facts": [
+                "TBA",
+                "TBA",
+                "TBA",
+                "TBA"
+            ]
+        }
+    }
+}

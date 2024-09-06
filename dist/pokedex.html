@@ -4,25 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./index.css" rel="stylesheet">
-    <link href="./output.css" rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
     <link href="./pokedex.css" rel="stylesheet">
     <script src="../lib/axios.min.js"></script>
     <script src="../lib/utils.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="../bucket/imgs/icons//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../bucket/imgs/icons//favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Pokedex</title>
 </head>
 <body class="flex flex-col">
 
-    <nav class="w-full mb-2" id="navbar">
+    <nav class="w-full flex flex-row justify-between items-center p-1" id="navbar">
         <a href="../index.html">
-            <img class="w-fit h-24" src="../bucket/imgs/logos/pokedex.png" alt="PokedexLogo">
+            <img class="w-fit h-24" src="../bucket/imgs/logos/pokedex.png" alt="PokedexLogo" id="pokedex-logo">
         </a>
+
+        <div class="search">
+            <input type="text" class="search bg-gray-700 border border-gray-300 rounded-lg" placeholder="Buscar..." id="searchbar">
+            <button class="search-icon material-symbols-outlined" id="searchicon" onclick="searchPokemon()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" onclick="searchPokemon()">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                  </svg>                  
+            </button>
+        </div>
+
+        <ul class="flex justify-center content-center flex-row button-list">
+            <li class="flex items-center button-list">
+                <span class="flag" id="current-flag"></span>
+                <span class="icon" onclick="">
+                    <i class="lang-switch"></i>
+                </span>                
+            </li>
+            <li class="button-container">
+                <span class="icon button-container" id="volume-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8 mr-1">
+                        <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z" />
+                        <path d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
+                    </svg>
+                </span>
+            </li>
+        </ul>
     </nav>
 
     <main class="content-wrapper">
         
     </main>
 
-    <footer class="w-full mt-2 text-4xl" id="footer">
+    <footer class="w-full text-4xl" id="footer">
 
     </footer>
 </body>

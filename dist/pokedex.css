@@ -1,11 +1,14 @@
 /* It's called pokedex.css but it's mostly loadingscreen.css lolololol */
 
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+
 .content-wrapper {
     overflow-y: hidden;
 }
 
 .loading-screen * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Kanit", Verdana, Tahoma, sans-serif;
     color: white;
 }
 
@@ -36,6 +39,11 @@
     z-index: 1000;
 }
 
+.text-6xl {
+    font-size: 4rem;
+    line-height: 1;
+}
+
 .facts-container * {
     margin: 3%;
 }
@@ -46,7 +54,7 @@
     align-items: center;
     padding: 1.25rem;
     width: 40%;
-    min-width: 650px;
+    min-width: 700px;
     /* background-color: hwb(0 0% 100%) */;
 }
 
@@ -56,6 +64,7 @@
     align-items: center;
     padding: 1.25rem;
     background-color: hsl(0, 0%, 25%);
+    font-family: "Kanit", sans-serif;
 
     border: solid ;
     border-width: 4px;
@@ -64,18 +73,37 @@
     filter: drop-shadow( 5px 10px 5px rgb(0 0 0 / 80%) );
 }
 
+.facts-info .title {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.5rem;
+}
+
+.region-fact {
+    min-width: 6rem;
+    font-size: 1.25rem;
+}
+
 .progress-wrapper {
     width: 80%;
     z-index: 2;
     transform: translateY(0);
     transition: 0.35s cubic-bezier(1,.01,1,.01);
+    border: 20px outset #787878;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    filter: drop-shadow( 10px 15px 5px rgb(0 0 0 / 70%) );
 }
 
 .progress-wrapper .progress-area {
     width: 100%;
     height: 50px;
     background: white;    
-    filter: drop-shadow( 10px 15px 5px rgb(0 0 0 / 70%) );
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75) inset;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -86,6 +114,7 @@
     position: relative;
     width: 2%;
     background: rgba(245, 25, 25, 0.897);
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75) inset;
     height: inherit;
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
@@ -223,6 +252,205 @@
         height: 50px;
     }
 
+}
+
+.region-info-wrapper{
+    --max-height: calc(100vh - 1rem);
+    max-height: max(var(--max-height), 120vh);
+    min-height: 900px;
+    display: flex;	
+}
+
+.region-info {
+    --max-height: calc(100vh - 1rem);
+    background-color: hsl(0, 0%, 25%);
+    margin: 1rem;
+    border-radius: 0.25rem;
+    display: grid;
+
+    grid-template-columns: 500px 1fr;
+    grid-template-rows: minmax(auto, 425px);
+
+    grid-template-areas: 
+        "professor info"
+        "professor games-area";
+
+    height: 100%;
+
+    z-index: 0;
+}
+
+.region-data {
+
+    grid-area: info;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.region-data .region-title {
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: 'Pixelify Sans', sans-serif;
+    color: white;
+}
+
+.region-data h1::first-letter {
+    text-transform: capitalize;
+}
+
+.region-relative {
+    position: relative;
+    max-height: 50%;
+    filter: drop-shadow(10px 20px 10px rgba(0,0,0,0.35));
+}
+
+.region-data .region-description {
+    display: inline-block;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+    position: relative;
+
+    font-size: 1.85rem;
+
+    
+    overflow-y: scroll;
+    text-align: justify;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    font-weight: 400;
+    font-family: 'SUSE', sans-serif;
+    background-color: rgb(234, 234, 234);;
+    padding: 1rem;
+    border-radius: 0.25rem;
+}
+
+.region-data .region-description::before {
+    content: " > ";
+    font-weight: 700;
+}
+
+.region-data .region-description-before {
+    position: absolute;
+    display: block;
+    top: 12px;
+    left: -10px;
+    transform: rotate(45deg);
+    z-index: 0;
+    
+
+    content: "";
+    width: 60px;
+    height: 60px;
+    background-color: rgb(234, 234, 234);;
+}
+
+
+.professor-wrapper {
+    grid-area: professor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(109, 109, 109);
+    
+    box-shadow: -1px -200px 41px 1px rgba(0,0,0,0.71) inset;
+    -webkit-box-shadow: -1px -200px 41px 1px rgba(0,0,0,0.71) inset;
+    -moz-box-shadow: -1px -200px 41px 1px rgba(0,0,0,0.71) inset;
+
+    border-radius: 0.25rem;
+
+    min-height: 100%;
+    max-height: var(--max-height); /* Don't mess with this */
+    width: 100%;
+    
+}
+
+.professor-wrapper img {
+    width: 100%;
+    height: 100%;
+    
+    object-fit: contain;
+}
+
+.region-extra-wrapper {
+    max-width: 100%;
+    max-height: max(485px, 53vh);
+    padding: 12px;
+    padding-top: 0px;
+}
+
+.region-extra {
+    grid-area: games-area;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    justify-items: center;
+
+    box-shadow: 13px 11px 25px 5px rgba(74,74,74,1) inset;
+    margin: 0.5rem;
+
+    overflow-y: scroll;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    height: 100%;
+    margin: auto 0;
+    background-color: rgb(151, 151, 151);
+    border-radius: 0.25rem;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 16px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    height: 20px;
+    border: 2px solid transparent;
+    background: rgba(83, 83, 83, 0.9);
+    border-radius: 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+    height: 20px;
+    border: 2px solid transparent;
+    background: rgba(83, 83, 83, 0.5);
+    border-radius: 20px;
+}
+
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(83, 83, 83, 0.9) transparent;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    max-height: 300px;
+    min-width: 400px;
+    min-height: 300px;
+
+    border: 20px solid black;
+    background-image:
+    radial-gradient(white 20%, white 20%, black 20%, black 30%, transparent 30%, transparent), 
+    linear-gradient(red 46%, black 46%, black 54%, white 54%);
+
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.game-image {
+    max-width: 100%;
+    object-fit: contain;
+    max-height: 95%;
 }
 
 #pokemon-list {
@@ -369,7 +597,7 @@
 .pokemon-data {
     max-height: 1.5rem;
     z-index: 1;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'SUSE', sans-serif;
 }
 
 .pokemon-name {
@@ -387,6 +615,8 @@
     z-index: 0;
     opacity: 0;
     font-weight: 900;
+    font-family: 'SUSE', sans-serif;
+
     transition: opacity 0.7s ease;
     color: var(--clr-gray);
     white-space: nowrap;
