@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     setRecentRegion("none");
+    setLanguage();
     startPlayingMusic(getCurrentMusic(getRecentRegion()));
     if (document.querySelector('audio.exists')) {
         currentMusic = document.querySelector('audio.exists');
@@ -27,7 +28,30 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    applyLanguageText();
+
+
 });
+
+var applyLanguageText = () => {
+    let search = document.getElementById('searchbar');
+    search.placeholder = getTranslatedText('search', getCurrentLanguage());
+
+    let all = document.getElementById('allregions');
+    all.innerText = getTranslatedText('all', getCurrentLanguage());
+
+    let splash = document.getElementById('title');
+    let splashSubtitle = document.getElementById('subtitle');
+
+    splash.innerText = getTranslatedText('splash', getCurrentLanguage());
+    splashSubtitle.innerText = getTranslatedText('splashSubtitle', getCurrentLanguage());
+
+    let regionGens = document.querySelectorAll('.region-gen');
+    regionGens.forEach((element) => {
+        let generationText = element.innerText.split(':')[1].trim(); 
+        element.innerText = `${getTranslatedText('generation', getCurrentLanguage())}: ${generationText}`;
+    });
+}
 
 let lastVolume = 10;
 

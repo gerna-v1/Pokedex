@@ -23,7 +23,7 @@
 
         <div class="search">
             <input type="text" class="search rounded-lg" placeholder="Buscar..." id="searchbar">
-            <button class="search-icon material-symbols-outlined" id="searchicon" onclick="searchPokemon()">
+            <button class="search-icon material-symbols-outlined clickable" id="searchicon" onclick="searchPokemon()">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" onclick="searchPokemon()">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                   </svg>                  
@@ -35,16 +35,23 @@
             <li class="flex items-center button-list">
                 <span class="flag" id="current-flag"></span>
                 <span class="icon" onclick="">
-                    <i class="lang-switch"></i>
+                    <i class="lang-switch clickable"></i>
                 </span>                
             </li>
-            <li class="button-container">
-                <span class="icon button-container" id="volume-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8 mr-1">
-                        <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z" />
-                        <path d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
+            <li class="button-container clickable">
+                <div class="icon button-container clickable" id="volume-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8 clickable">
+                        <path class="clickable" d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z" />
+                        <path class="clickable" d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
                     </svg>
-                </span>
+                </div>
+            </li>
+            <li class="button-container clickable">
+                <div class="icon button-container clickable" id="hamburguer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                      </svg>                      
+                </div>
             </li>
         </ul>
         
@@ -52,103 +59,107 @@
 
     <main class="w-full lg:w-3/4 min-h-fit h-full bg-white flex flex-col self-center" id="container">
 
-        <div class="h-[inherit] w-full my-4">
-            <h1 class="text-4xl text-center" id="region-splash">Choose your region!!</h1>
+        <div class="h-[inherit] w-full mt-4">
+            <h1 class="text-4xl text-center region-splash" id="title">Welcome to the Pokedex!!</h1>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 my-2 mx-auto" id="regions-container">
+        <div class="h-[inherit] w-full mt-3 mb-4">
+            <h1 class="text-4xl text-center region-splash" id="subtitle">Choose your region!!</h1>
+        </div>
+
+        <div class="grid gap-4 my-2 mx-auto" id="regions-container">
             <div class="region-div">
-                <button onclick="enterRegion('all')">
+                <a href="./dist/pokedex.html?region=all&offset=0&limit=1026" onclick="enterRegion('all')">
                     <img class="region" src="./bucket/imgs/regions/world.png" alt="World">
-                </button>
-                <h3 class="region-name text-2xl mt-3">Todas las regiones</h3>
+                </a>
+                <h3 class="region-name text-2xl mt-3" id="allregions">Todas las regiones</h3>
                 <p class="region-gen mb-3">Generación: 1-9</p>
             </div>
     
             <div class="region-div">
-                <button onclick="enterRegion('kanto')">
+                <a href="./dist/pokedex.html?region=kanto&offset=0&limit=152" onclick="enterRegion('kanto')">
                     <img class="region" src="./bucket/imgs/regions/kanto.png" alt="Kanto">
-                </button>
+                </a>
                 <h3 class="region-name text-2xl mt-3">Kanto</h3>
                 <p class="region-gen mb-3">Generación: 1</p>
             </div>
     
             <div class="region-div">
-                <button onclick="enterRegion('johto')">
+                <a href="./dist/pokedex.html?region=johto&offset=151&limit=252" onclick="enterRegion('johto')">
                     <img class="region" src="./bucket/imgs/regions/johto.png" alt="Johto">
-                </button>
+                </a>
                 <h3 class="region-name text-2xl mt-3">Johto</h3>
                 <p class="region-gen mb-3">Generación: 2</p>
             </div>
     
             <div class="region-div">
-                <button onclick="enterRegion('hoenn')">
+                <a href="./dist/pokedex.html?region=hoenn&offset=251&limit=387" onclick="enterRegion('hoenn')">
                     <img class="region" src="./bucket/imgs/regions/hoenn.png" alt="Hoenn">
-                </button>
+                </a>
                 <h3 class="region-name text-2xl mt-3">Hoenn</h3>
                 <p class="region-gen mb-3">Generación: 3</p>
             </div>
     
             <div class="region-div">
-                <button onclick="enterRegion('sinnoh')">
+                <a href="./dist/pokedex.html?region=hoenn&offset=386&limit=494" onclick="enterRegion('sinnoh')">
                     <img class="region" src="./bucket/imgs/regions/sinnoh.png" alt="Sinnoh">
-                </button>
+                </a>
                 <h3 class="region-name text-2xl mt-3">Sinnoh</h3>
                 <p class="region-gen mb-3">Generación: 4</p>
             </div>
     
             <div class="region-div">
-                <button onclick="enterRegion('unova')">
+                <a href="./dist/pokedex.html?region=unova&offset=494&limit=650" onclick="enterRegion('unova')">
                     <img class="region" src="./bucket/imgs/regions/unova.png" alt="Unova">
-                </button>
+                </a>
                 <h3 class="region-name text-2xl mt-3">Unova</h3>
                 <p class="region-gen mb-3">Generación: 5</p>
             </div>
     
             <div class="region-div">
-                <button onclick="enterRegion('kalos')">
+                <a href="./dist/pokedex.html?region=kalos&offset=649&limit=722" onclick="enterRegion('kalos')">
                     <img class="region" src="./bucket/imgs/regions/kalos.png" alt="Kalos">
-                </button>
+                </a>
                 <h3 class="region-name text-2xl mt-3">Kalos</h3>
                 <p class="region-gen mb-3">Generación: 6</p>
             </div>
     
             <div class="region-div">
-                <button onclick="enterRegion('alola')">
+                <a href="./dist/pokedex.html?region=alola&offset=721&limit=809" onclick="enterRegion('alola')">
                     <img class="region" src="./bucket/imgs/regions/alola.png" alt="Alola">
-                </button>
+                </a>
                 <h3 class="region-name text-2xl mt-3">Alola</h3>
                 <p class="region-gen mb-3">Generación: 7</p>
             </div>
     
             <div class="region-div">
-                <button onclick="enterRegion('galar')">
+                <a href="./dist/pokedex.html?region=galar&offset=809&limit=898" onclick="enterRegion('galar')">
                     <img class="region" src="./bucket/imgs/regions/galar.png" alt="Galar">
-                </button>
+                </a>
                 <h3 class="region-name text-2xl mt-3">Galar</h3>
                 <p class="region-gen mb-3">Generación: 8</p>
             </div>
     
             <div class="region-div">
-                <button onclick="enterRegion('hisui')">
+                <a href="./dist/pokedex.html?region=hisui&offset=999&limit=999" onclick="enterRegion('hisui')">
                     <img class="region" src="./bucket/imgs/regions/hisui.png" alt="Hisui">
-                </button>
+                </a>
                 <h3 class="region-name text-2xl mt-3">Hisui</h3>
                 <p class="region-gen mb-3">Generación: 8</p>
             </div>
     
             <div class="region-div">
-                <button onclick="enterRegion('paldea')">
+                <a href="./dist/pokedex.html?region=paldea&offset=905&limit=1026" onclick="enterRegion('paldea')">
                     <img class="region" src="./bucket/imgs/regions/paldea.png" alt="Paldea">
-                </button>
+                </a>
                 <h3 class="region-name text-2xl mt-3">Paldea</h3>
                 <p class="region-gen mb-3">Generación: 9</p>
             </div>
     
             <div class="region-div">
-                <button onclick="enterRegion('extra')">
+                <a href="./dist/pokedex.html?region=extra&offset=1025&limit=1303" onclick="enterRegion('extra')">
                     <img class="region object-contain" src="./bucket/imgs/regions/pokedex.png" alt="Extra">
-                </button>
+                </a>
                 <h3 class="region-name text-2xl mt-3">Extra</h3>
                 <p class="region-gen mb-3">Generación: 1-9</p>
             </div>

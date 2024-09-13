@@ -100,7 +100,7 @@
             ]
         },
         "extra": {
-            "description": "Algunos pokemones tienen una o más formas especiales o alternativas, debido a eso se recopilan sus datos en esta sección especial para todas aquellas especies que tienen este tipo de variaciones",
+            "description": "Algunos pokemones tienen una o más formas especiales o alternativas, esto puede deberse al hecho de encontrarse en dos regiones distintas, habitar en climas diferentes u otras razones. Estos cambios no son solamente visuales, aspectos como sus tipos, movimientos, estadísticas base, peso y altura también presentan variaciones, y estas pueden afectar de forma completa la línea evolutiva de ciertos pokemones. Este concepto se introdujo de manera oficial en la Generación VII, mostrándose por primera vez en Alola y recibiendo el nombre 'forma de Alola'. Debido a esto, se recopilan sus datos en esta sección especial para todas aquellas especies que tienen este tipo de variaciones.",
             "facts": [
                 "TBA",
                 "TBA",
@@ -219,7 +219,7 @@
             ]
         },
         "extra": {
-            "description": "TBA",
+            "description": "Some Pokémon have one or more special or alternative forms, this may be due to being in two different regions, living in different climates or other reasons. These changes are not only visual, aspects such as their types, moves, base statistics, weight and height also present variations, and these can completely affect the evolutionary line of certain Pokémon. This concept was officially introduced in Generation VII, first being shown in Alola and receiving the name 'Alolan form'. Because of this, their data is compiled in this special section for all those species that have this type of variations.",
             "facts": [
                 "TBA",
                 "TBA",

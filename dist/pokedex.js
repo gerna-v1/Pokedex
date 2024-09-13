@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', async () => {
+
+    let params = new URLSearchParams(window.location.search);
+    setRecentRegion(params.get('region'));
     loadPokedex();
+    applyLanguageText();
     startPlayingMusic(getCurrentMusic(getRecentRegion()));
     if (document.querySelector('audio.exists')) {
         currentMusic = document.querySelector('audio.exists');
@@ -7,8 +11,70 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupVolumeControls(currentMusic);
 });
 
+var applyLanguageText = () => {
+
+    let search = document.getElementById('searchbar');
+    search.placeholder = getTranslatedText('search', getCurrentLanguage());
+};
+
+const regionPokedex = {
+    all: [1],
+    kanto: [26],
+    johto: [7],
+    hoenn: [15],
+    sinnoh: [6],
+    unova: [9],
+    kalos: [12, 13, 14],
+    alola: [21],
+    galar: [27, 28, 29],
+    hisui: [30],
+    paldea: [31, 32, 33],
+}
+
+const getRegionPokedex = (region) => {
+    return regionPokedex[region];
+}
+
 let lastVolume = 10;
 
+const getQueueOfPokemon = async (pokedexes) => {
+    let pokequeue = new Queue();
+
+    for (const pokedex of pokedexes) {
+        let response = await axios.get(`https://pokeapi.co/api/v2/pokedex/${pokedex}`);
+        let data = await response.data;
+        console.log(data);
+        pokequeue.enqueue(data.pokemon_entries);
+    }
+
+    return pokequeue;
+};
+
+const getPokedex = async (queue) => {
+
+    let pokemonList = [];
+    let pokemonNames = new Set();
+
+    while (!queue.isEmpty()) {
+        let pokedex = queue.dequeue();
+        for (let pokemon of pokedex) {
+            let pokemonName = new Pokemon(pokemon).getName();
+            if (!pokemonNames.has(pokemonName)) {
+                pokemonNames.add(pokemonName);
+            }
+        }
+    }
+
+    const totalPokemons = pokemonNames.size;
+    let loadingInfo = { loadedCount: 0, totalPokemons };
+
+    const fetchPromises = Array.from(pokemonNames).map(pokemonName => fetchPokemonData(pokemonName, loadingInfo));
+
+    pokemonList = await Promise.all(fetchPromises);
+
+    console.log(pokemonList);
+    return pokemonList;
+};
 const getPokemons = async () => {
     try {
         const params = new URLSearchParams(window.location.search);
@@ -19,36 +85,7 @@ const getPokemons = async () => {
         await deployLoadingScreen(getRecentRegion());
         //const factBox = document.querySelector('.region-fact');
 
-        if(offset == 999 && limit == 999) { // If it's not the Hisui region, defined as 0 and 0
-            try {
-                let response = await axios.get('https://pokeapi.co/api/v2/pokedex/30/');
-                let data = await response.data;
-                let pokedex = data.pokemon_entries;
-                console.log(pokedex);
-
-                var poke = [];
-                
-                for (let pokemon  of pokedex) {
-                    try {
-                        let response = await axios.get(`${pokemon.pokemon_species.url}`);
-                        let id = await response.data.pokedex_numbers[0].entry_number;
-                        let pokeresponse = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-                        let pokedata = await pokeresponse.data;
-                        poke.push(pokedata);                        
-                        i++;
-                        updateLoadingScreen(i, pokedex.length);
-                        console.log(i);
-                    } catch (error) {
-                        console.error(error);
-                    }
-                }
-                console.log(poke);
-                console.log(pokedex);
-                return poke;
-            } catch (error) {
-                console.error(error);
-            }
-        } else {
+        if((offset == 0 && limit == 0) || (offset == 1025 && limit == 1303)) { // If it's not the Extra region, defined as 0 and 0
             let trueLimit = limit - offset;
             let response = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${trueLimit - 1}`);
             let data = await response.data;
@@ -56,11 +93,24 @@ const getPokemons = async () => {
             for (let pokemon of data.results) {
                 let response = await axios.get(pokemon.url);
                 let data = await response.data;
-                poke.push(data);
+                let speciesResponse = await axios.get(data.species.url);
+                let speciesData = await speciesResponse.data;
+                poke.push(new Pokemon(speciesData, data));
                 i++;
                 updateLoadingScreen(i, trueLimit);
                 console.log(i);
             }
+
+            return poke;
+        } else {
+            try {
+                let pokedexes = getRegionPokedex(getRecentRegion());
+                let queue = await getQueueOfPokemon(pokedexes);
+                let pokemons = await getPokedex(queue);
+                return pokemons;
+            } catch (error) {
+                console.error(error);
+            }            
 
             console.log(poke); 
             return poke;
@@ -82,16 +132,16 @@ const deployLoadingScreen = async (region) => {
     const loadingScreen = `<div class="loading-screen mx-auto" id="loading-screen"> 
 
         <section class="facts-container">
-            <h1 class="text-6xl mb-2" id="region-title"> Now accesing: ${CFL(region)} </h1>   
+            <h1 class="text-6xl mb-2" id="region-title"> ${getTranslatedText('access', getCurrentLanguage())}: ${CFL(region)} </h1>   
             <div class="facts-info">
-                <h2 class="title text-3xl">Did you know?</h2>
+                <h2 class="title text-3xl" id="funfact">${getTranslatedText('funfact', getCurrentLanguage())}</h2>
                 <p class="region-fact">${randomFact}</p>
             </div>
         </section>
 
         <div class="progress-wrapper">
             <div class="progress-area">
-                <div class="progress-bar" onclick="startPlayingMusic('${getCurrentMusic(region)}')"></div>
+                <div class="progress-bar clickable" onclick="startPlayingMusic('${getCurrentMusic(region)}')"></div>
                 <div class="flex justify-center content-center m-10 margin-flexible"> 
                     <div class="progress-number font-medium text-xl"> 0 / ??? </div>
                 </div
@@ -119,9 +169,10 @@ const deployRegionInfo = async (regionName, regionData, regionExtra) => {
                 <div class="region-relative">
                     <div class="region-description-before"></div>
                     <p class="region-description custom-scrollbar">${regionData.description}</p>
+                    <img class="region-map" src="${distinguishHref(true)}/bucket/imgs/regions/${regionName}.png">
                 </div>
                 
-                <h1 class="region-title">Games it appears in: </h1>
+                <h1 class="region-title">${getTranslatedText('appearsin', getCurrentLanguage())}</h1>
             </div>
 
             <div class="region-extra-wrapper">
@@ -163,20 +214,24 @@ const updateRandomFact = (region) => {
 
 const removeLoadingScreen = async () => {
     const loadingScreen = document.getElementById('loading-screen');
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 500));
     loadingScreen.remove();
     console.log('All pokemon loaded');
 }
 
 const createPokemonCard = (pokemon, index) => {
     const pokemonCard = document.createElement('a');
-    pokemonCard.href = `./pokemon.html?name=${pokemon.name}`;
+    pokemonCard.href = `./pokemon.html?name=${pokemon.pokemonData.name}`;
     pokemonCard.className = 'pokemon-card';
+    const pokeData = pokemon.pokemonData;
+    console.log(pokeData);
+    const speciesData = pokemon.speciesData;
+    console.log(pokeData)
 
-    let image = pokemon.sprites.other["official-artwork"].front_default;
+    let image = pokeData.sprites.other["official-artwork"].front_default;
 
     if (image == null) {
-        image = pokemon.sprites.front_default ? pokemon.sprites.front_default : '../bucket/imgs/icons/missingno.png';
+        image = pokeData.sprites.front_default ? pokeData.sprites.front_default : '../bucket/imgs/icons/missingno.png';
         var missingno = true;
     }
 
@@ -188,16 +243,16 @@ const createPokemonCard = (pokemon, index) => {
                 src="${image}" 
                 srcset="${image} 1x, ${image}@2x.webp 2x" 
                 type="image/webp"
-                alt="${pokemon.species.name}" 
+                alt="${pokeData.species.name}" 
                 class="w-32 h-32" 
             >         
         </div>
         <div class="pokemon-data">
             <div class="name-wrapper flex flex-row justify-center">
-                <h2 class="pokemon-name">${pokemon.species.name}</h2>
+                <h2 class="pokemon-name">${pokeData.species.name}</h2>
             </div>
             <div class="pokemon-type flex flex-row justify-center">
-                ${pokemon.types.map(type => `<p class="type ${type.type.name}">${type.type.name}</p>`).join('')}
+                ${pokeData.types.map(type => `<p class="type ${type.type.name}">${type.type.name}</p>`).join('')}
             </div>
         </div>
     `;
@@ -282,7 +337,7 @@ const loadPokedex = async () => {
     
 
     const backToTop = document.createElement('button');
-    backToTop.classList.add('back-to-top-button', 'bg-white');
+    backToTop.classList.add('back-to-top-button', 'bg-white', "clickable");
     backToTop.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
