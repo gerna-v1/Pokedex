@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let params = new URLSearchParams(window.location.search);
     setRecentRegion(params.get('region'));
+    setupSidebarButtons();
     loadPokedex();
     applyLanguageText();
     startPlayingMusic(getCurrentMusic(getRecentRegion()));
@@ -308,6 +309,7 @@ const loadRegionInfo = async (region, language) => {
 };
 
 const loadPokedex = async () => {
+
     const pokemons = await getPokemons();
     const mainContent = document.querySelector('.content-wrapper');
 

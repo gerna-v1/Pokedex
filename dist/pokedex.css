@@ -497,8 +497,8 @@
     border-radius: 50%;
     border: 0.5rem solid black;
     box-shadow: inset -1rem -0.5rem 0 0 rgba(0, 0, 0, 0.2);
-    animation: shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) 1.5s 9,
-        catch 0.5s ease-out 5.25s forwards;
+    animation: shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) 1.5s 90,
+        catch 0.5s ease-out 15s forwards;
 }
 
 .hidden {

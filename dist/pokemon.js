@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    createLoader();
     const pokemon = await getPokemon();
+    setupSidebarButtons();
     console.debug(pokemon);
     try {
         await loadPokemon(pokemon);
@@ -55,6 +57,16 @@ const playCry = async (url) => {
     } catch (error) {
         console.error(error);
     }
+};
+
+const createLoader = () => {
+    const pokemonCard = document.getElementById('pokemon-card');
+    pokemonCard.innerHTML = `
+        <div class="wrapper">
+            <div class="pokeball">
+            </div>
+        </div>
+    `;
 };
 
 const backgroundUrls = {
@@ -147,7 +159,7 @@ const loadPokemon = async (pokemon) => {
 
             <div class="poke-wrapper">
 
-                <div class="pokemon-change">
+                <div class="pokemon-change previous">
                     <a href="../dist/pokemon.html?name=${previousId}">
                         <img title="${CFL(previousPokemonData.species.name)}" src="${previousPokemonData.sprites.front_default}" alt="Previous Pokémon">
                         <span>&larr;</span>
@@ -168,7 +180,7 @@ const loadPokemon = async (pokemon) => {
                     </button>
                 </div>
 
-                <div class="pokemon-change">
+                <div class="pokemon-change next">
                     <a href="../dist/pokemon.html?name=${nextId}">
                         <img title="${CFL(nextPokemonData.species.name)}" src="${nextPokemonData.sprites.front_default}" alt="Next Pokémon">
                         <span>&rarr;</span>

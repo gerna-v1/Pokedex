@@ -17,35 +17,72 @@
 <body class="flex flex-col">
 
     <nav class="w-full flex flex-row justify-between items-center p-1" id="navbar">
-        <a href="../index.html">
-            <img class="w-fit h-24" src="../bucket/imgs/logos/pokedex.png" alt="PokedexLogo" id="pokedex-logo">
-        </a>
-
-        <div class="search">
-            <input type="text" class="search bg-gray-700 border border-gray-300 rounded-lg" placeholder="Buscar..." id="searchbar">
-            <button class="search-icon material-symbols-outlined" id="searchicon" onclick="searchPokemon()">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" onclick="searchPokemon()">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                  </svg>                  
-            </button>
-        </div>
-
-        <ul class="flex justify-center content-center flex-row button-list">
-            <li class="flex items-center button-list">
-                <span class="flag" id="current-flag"></span>
-                <span class="icon" onclick="">
-                    <i class="lang-switch"></i>
-                </span>                
+        <ul class="flex items-center flex-row button-list">
+            <li>
+                <a href="../index.html" id="pokedex-container">
+                    <img class="w-fit h-24" src="../bucket/imgs/logos/pokedex.png" alt="PokedexLogo" id="pokedex-logo">
+                </a>
             </li>
-            <li class="button-container">
-                <span class="icon button-container" id="volume-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8 mr-1">
-                        <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z" />
-                        <path d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
-                    </svg>
+            <li class="search">
+                <input type="text" class="search rounded-lg" placeholder="Buscar..." id="searchbar">
+                <button class="search-icon material-symbols-outlined clickable" id="searchicon" onclick="searchPokemon()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>                  
+                </button>
+            </li>
+            <li class="flex items-center button-list2">
+                <span class="flag current-flag"></span>
+                <span class="icon" onclick="">
+                    <i class="lang-switch clickable"></i>
                 </span>
+                <div class="icon button-container clickable" id="volume-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="volumesize clickable">
+                        <path class="clickable" d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z" />
+                        <path class="clickable" d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
+                    </svg>
+                </div>         
+            </li>
+            <li id="hamburguer-wrapper">
+                <button class="icon button-container clickable" id="hamburguer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
             </li>
         </ul>
+    </nav>
+    
+    <nav class="w-full p-4" id="sidebar">
+        <button class="icon button-container clickable" id="hamburguer2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </button>
+        <div class="second search">
+            <input type="text" class="search rounded-lg" placeholder="Buscar..." id="searchbar2">
+            <button class="search-icon material-symbols-outlined clickable" id="searchicon2" onclick="searchPokemon()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>                  
+            </button>
+        </div>
+        <div class="flex justify-center content-center flex-col button-list3">
+            <div class="flex items-center button-list">
+                <span class="flag current-flag"></span>
+                <span class="icon" onclick="">
+                    <i class="lang-switch clickable"></i>
+                </span>                
+            </div>
+            <div class="button-container clickable">
+                <div class="icon button-container clickable" id="volume-icon2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-12 clickable">
+                        <path class="clickable" d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z" />
+                        <path class="clickable" d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <main class="content-wrapper">

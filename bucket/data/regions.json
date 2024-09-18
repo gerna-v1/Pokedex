@@ -102,19 +102,25 @@
         "extra": {
             "description": "Algunos pokemones tienen una o más formas especiales o alternativas, esto puede deberse al hecho de encontrarse en dos regiones distintas, habitar en climas diferentes u otras razones. Estos cambios no son solamente visuales, aspectos como sus tipos, movimientos, estadísticas base, peso y altura también presentan variaciones, y estas pueden afectar de forma completa la línea evolutiva de ciertos pokemones. Este concepto se introdujo de manera oficial en la Generación VII, mostrándose por primera vez en Alola y recibiendo el nombre 'forma de Alola'. Debido a esto, se recopilan sus datos en esta sección especial para todas aquellas especies que tienen este tipo de variaciones.",
             "facts": [
-                "TBA",
-                "TBA",
-                "TBA",
-                "TBA"
+                "Las formas de Alola fueron introducidas en la región de Alola.",
+                "Las megaevoluciones fueron introducidas en la región de Kalos.",
+                "Las formas galarianas wfueron introducidas en la region de Galar.",
+                "Las formas de Hisui fueron introducidas en la region de Hisui"
             ]
         },
         "all": {
             "description": "Hola! ¡Este es el mundo de Pokémon! ¡Me llamo Oak! ¡Pero la gente me llama Profesor Pokémon! ¡Este mundo está habitado por unas criaturas llamadas Pokémon! Para algunos, los Pokémon son mascotas. Pero otros los usan para pelear. En cuanto a mí... Estudio a los Pokémon como profesión. \n¡Tu propia leyenda Pokémon está a punto de comenzar! ¡Te espera un mundo de sueños y aventuras con los Pokémon! Adelante!",
             "facts": [
-                "TBA",
-                "TBA",
-                "TBA",
-                "TBA"
+                "Kanto es la primera región que se introdujo al mundo Pokémon.",
+                "Johto y Kanto son las únicas regiones que se muestran conectadas entre sí.",
+                "Hoenn es la primera región en contar con zonas donde el clima difiere.",
+                "Sinnoh presenta una cantidad de climas variados donde predominan los fríos.",
+                "Unova es la primera región que no se basa en Japón.",
+                "Kalos presenta la mayor población de entre todas las regiones.",
+                "Alola es la primera región la cual no posee líderes de gimnasio.",
+                "Hisui es la región que se basa en la isla de Hokkaido durante la colonización japonesa temprana.",
+                "Galar está basada en el Reino Unido.",
+                "Paldea es la primera región que no tiene rutas ni números de ruta, en su lugar, se les conoce como 'Áreas'."
             ]
         }
     },
@@ -221,19 +227,25 @@
         "extra": {
             "description": "Some Pokémon have one or more special or alternative forms, this may be due to being in two different regions, living in different climates or other reasons. These changes are not only visual, aspects such as their types, moves, base statistics, weight and height also present variations, and these can completely affect the evolutionary line of certain Pokémon. This concept was officially introduced in Generation VII, first being shown in Alola and receiving the name 'Alolan form'. Because of this, their data is compiled in this special section for all those species that have this type of variations.",
             "facts": [
-                "TBA",
-                "TBA",
-                "TBA",
-                "TBA"
+                "Alolan forms were introduced in the Alola region.",
+                "Mega evolutions were introduced in the Kalos region.",
+                "Galarian forms were introduced in the Galar region.",
+                "Hisuian forms were introduced in the Hisui region."
             ]
         },
         "all": {
             "description": "Hello, there! Glad to meet you! Welcome to the world of Pokémon! My name is Oak. People affectionately refer to me as the Pokémon Professor. This world… …is inhabited far and wide by creatures called Pokémon! For some people, Pokémon are pets. Other use them for battling. As for myself… I study Pokémon as a profession. \nYour own very Pokémon legend is about to unfold! A world of dreams and adventures with Pokémon awaits! Let's go!",
             "facts": [
-                "TBA",
-                "TBA",
-                "TBA",
-                "TBA"
+                "Kanto is the first region to be introduced to the Pokémon world.",
+                "Johto and Kanto are the only regions shown to be connected to each other.",
+                "Hoenn is the first region to have areas with differing climates.",
+                "Sinnoh has a variety of climates where cold weather predominates.",
+                "Unova is the first region not based on Japan.",
+                "Kalos has the largest population of all the regions.",
+                "Alola is the first region without gym leaders.",
+                "Hisui is the region based on the island of Hokkaido during early Japanese colonization.",
+                "Galar is based on the United Kingdom.",
+                "Paldea is the first region without routes and route numbers, instead, they're known as 'Areas'."
             ]
         }
     }
