@@ -175,8 +175,8 @@ const loadPokemon = async (pokemon) => {
                 </div>
 
                 <div class="pokemon-image">
-                    <button class="inherit clickable" onClick="playCry('${pokeData.cries.latest}')">
-                        <div class="pokemon-bg flex justify-center align-middle" style="background-image: url('../bucket/imgs/backgrounds/${background}')">
+                    <button class="inherit clickable" onClick="playCry('${pokeData.cries.latest}')" alt="spin the pokemon">
+                        <div class="pokemon-bg flex justify-center align-middle" style="background-image: url('../bucket/imgs/backgrounds/${background}')" alt="${pokeData.species.name} sprite">
                             <div class="image-wrapper">
                                 <img class="sprite inherit" 
                                     src="${spritelist[0]}" 

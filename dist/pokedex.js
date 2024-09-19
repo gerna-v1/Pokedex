@@ -170,7 +170,7 @@ const deployRegionInfo = async (regionName, regionData, regionExtra) => {
                 <div class="region-relative">
                     <div class="region-description-before"></div>
                     <p class="region-description custom-scrollbar">${regionData.description}</p>
-                    <img class="region-map" src="${distinguishHref(true)}/bucket/imgs/regions/${regionName}.png">
+                    <img class="region-map" alt="${regionName}" src="${distinguishHref(true)}/bucket/imgs/regions/${regionName}.png">
                 </div>
                 
                 <h1 class="region-title">${getTranslatedText('appearsin', getCurrentLanguage())}</h1>
