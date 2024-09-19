@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', async () => {
     createLoader();
-    const pokemon = await getPokemon();
+    const pokemon = await getPokemon() || getMissingno(); 
     setupSidebarButtons();
     console.debug(pokemon);
     try {
         await loadPokemon(pokemon);
-    } catch {
-        console.error('Error loading Pokémon data');
+    } catch (error) {
+        console.error('Error loading Pokémon data: ' + error);
         await loadPokemon(getMissingno());
     }
     setRecentRegion(getRecentRegion());
@@ -106,14 +106,15 @@ function getBackgroundByType(types) {
 
 const loadPokemon = async (pokemon) => {
     const pokemonCard = document.getElementById('pokemon-card');
-    let pokeData = pokemon.pokemonData || getMissingno();
-    let pokeSpecies = pokemon.speciesData || getMissingnoSpecies();
+    let pokeData = pokemon.pokemonData;
+    let pokeSpecies = pokemon.speciesData;
 
     let descriptions = pokeSpecies.flavor_text_entries.filter(entry => entry.language.name === `${getLangTag(getCurrentLanguage())}`);
     let description = descriptions[Math.floor(Math.random() * descriptions.length)];
     if (!description) {
         description = pokeSpecies.flavor_text_entries.find(entry => entry.language.name === 'en');
     }
+    
     description.flavor_text = description.flavor_text.replace(/\n/g, ' ');
     
 
@@ -149,6 +150,12 @@ const loadPokemon = async (pokemon) => {
 
     const previousEvolutionData = previousEvolution ? await fetchPokeData(previousEvolution) : null;
     const nextEvolutionData = nextEvolution ? await fetchPokeData(nextEvolution) : null;
+
+    let background = getBackgroundByType(pokemonTypes);
+
+    if (pokeData.species.name === "missingno") {
+        background = "missingno.jpg";
+    }
     
     pokemonCard.innerHTML = `
         <div class="pokemon" id="card-wrapper">
@@ -169,7 +176,7 @@ const loadPokemon = async (pokemon) => {
 
                 <div class="pokemon-image">
                     <button class="inherit clickable" onClick="playCry('${pokeData.cries.latest}')">
-                        <div class="pokemon-bg flex justify-center align-middle" style="background-image: url('../bucket/imgs/backgrounds/${getBackgroundByType(pokemonTypes)}')">
+                        <div class="pokemon-bg flex justify-center align-middle" style="background-image: url('../bucket/imgs/backgrounds/${background}')">
                             <div class="image-wrapper">
                                 <img class="sprite inherit" 
                                     src="${spritelist[0]}" 
@@ -371,75 +378,5 @@ const adjustSpriteWrapper = (img) => {
     } else {
         imageWrapper.style.maxWidth = '100%';
         imageWrapper.style.maxHeight = '100%';
-    }
-};
-
-const fetchPokemonInSpanish = async () => {
-    const languageUrl = 'https://pokeapi.co/api/v2/language/7/'; // Spanish language ID
-
-    try {
-        const params = new URLSearchParams(window.location.search);
-        const name = params.get('name');
-
-        // Fetch the Pokémon details
-        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
-        const pokemonData = response.data;
-
-        // Fetch language-specific data
-        const speciesResponse = await axios.get(pokemonData.species.url);
-        const speciesData = speciesResponse.data;
-
-        // Find the name in Spanish
-        const nameInSpanish = speciesData.names.find(name => name.language.url === languageUrl);
-
-        // Fetch all moves, types, and abilities in a single call
-        const allDataPromises = [
-            ...pokemonData.moves.map(moveInfo => axios.get(moveInfo.move.url)),
-            ...pokemonData.types.map(typeInfo => axios.get(typeInfo.type.url)),
-            ...pokemonData.abilities.map(abilityInfo => axios.get(abilityInfo.ability.url))
-        ];
-
-        const allDataResponses = await Promise.all(allDataPromises);
-
-        // Extract moves, types, and abilities in Spanish
-        const moves = allDataResponses.slice(0, pokemonData.moves.length).map((response, index) => {
-            const moveData = response.data;
-            const moveNameInSpanish = moveData.names.find(name => name.language.url === languageUrl);
-            return {
-                name: moveNameInSpanish ? moveNameInSpanish.name : moveData.name,
-                method: pokemonData.moves[index].version_group_details[0].move_learn_method.name,
-                level: pokemonData.moves[index].version_group_details[0].level_learned_at
-            };
-        });
-
-        const types = allDataResponses.slice(pokemonData.moves.length, pokemonData.moves.length + pokemonData.types.length).map((response) => {
-            const typeData = response.data;
-            const typeNameInSpanish = typeData.names.find(name => name.language.url === languageUrl);
-            return typeNameInSpanish ? typeNameInSpanish.name : typeData.name;
-        });
-
-        const abilities = allDataResponses.slice(pokemonData.moves.length + pokemonData.types.length).map((response) => {
-            const abilityData = response.data;
-            const abilityNameInSpanish = abilityData.names.find(name => name.language.url === languageUrl);
-            return abilityNameInSpanish ? abilityNameInSpanish.name : abilityData.name;
-        });
-
-        console.log({
-            name: nameInSpanish ? nameInSpanish.name : pokemonData.name,
-            id: pokemonData.id,
-            types: types,
-            abilities: abilities,
-            moves: moves,
-        });
-
-        return {
-            name: nameInSpanish ? nameInSpanish.name : pokemonData.name,
-            id: pokemonData.id,
-            types: types,
-            abilities: abilities,
-            moves: moves,
-        };
-    } catch (error) {
-        console.error('Error fetching Pokémon data:', error);
     }
 };
