@@ -25,12 +25,14 @@
                 </a>
             </li>
             <li class="search">
-                <input type="text" class="search rounded-lg" placeholder="Buscar..." id="searchbar">
-                <button class="search-icon material-symbols-outlined clickable" id="searchicon" onclick="searchPokemon()" alt="Search Pokemon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                    </svg>                  
-                </button>
+                <form id="searchForm" onsubmit="searchPokemon(); return false;">
+                    <input type="text" class="search rounded-lg" placeholder="Buscar..." id="searchbar">
+                    <button type="submit" class="search-icon material-symbols-outlined clickable" id="searchicon" alt="Search Pokemon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>                  
+                    </button>
+                </form>
             </li>
             <li class="flex items-center button-list2">
                 <span class="flag current-flag"></span>
@@ -61,12 +63,14 @@
             </svg>
         </button>
         <div class="second search">
-            <input type="text" class="search rounded-lg" placeholder="Buscar..." id="searchbar2">
-            <button class="search-icon material-symbols-outlined clickable" id="searchicon2" onclick="searchPokemon()">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                </svg>                  
-            </button>
+            <form id="searchForm2" onsubmit="searchPokemon(); return false;">
+                <input type="text" class="search rounded-lg" placeholder="Buscar..." id="searchbar2">
+                <button type="submit" class="search-icon material-symbols-outlined clickable" id="searchicon2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>                  
+                </button>
+            </form>
         </div>
         <div class="flex justify-center content-center flex-col button-list3">
             <div class="flex items-center button-list">
