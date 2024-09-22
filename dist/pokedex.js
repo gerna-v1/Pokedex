@@ -242,15 +242,15 @@ const createPokemonCard = (pokemon, index) => {
             <div class="pokeball"></div>
             <img class="sprite hidden" 
                 src="${image}" 
-                srcset="${image} 1x, ${image}@2x.webp 2x" 
+                srcset="${image}" 
                 type="image/webp"
-                alt="${pokeData.species.name}" 
+                alt="${pokeData.species.name} picture" 
                 class="w-32 h-32" 
             >         
         </div>
         <div class="pokemon-data">
             <div class="name-wrapper flex flex-row justify-center">
-                <h2 class="pokemon-name">${pokeData.species.name}</h2>
+                <h2 class="pokemon-name" alt="${pokeData.species.name} card">${pokeData.species.name}</h2>
             </div>
             <div class="pokemon-type flex flex-row justify-center">
                 ${pokeData.types.map(type => `<p class="type ${type.type.name}">${type.type.name}</p>`).join('')}
